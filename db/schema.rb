@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130119020645) do
+ActiveRecord::Schema.define(:version => 20140826193902) do
 
   create_table "albums", :force => true do |t|
     t.string   "title",       :null => false
@@ -35,6 +35,12 @@ ActiveRecord::Schema.define(:version => 20130119020645) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "carts", :force => true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "collection_albums", :force => true do |t|
     t.integer  "collection_id"
     t.integer  "album_id"
@@ -53,6 +59,21 @@ ActiveRecord::Schema.define(:version => 20130119020645) do
   end
 
   add_index "collections", ["id"], :name => "index_collections_on_id", :unique => true
+
+  create_table "payments", :force => true do |t|
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "card_number"
+    t.string   "card_month"
+    t.string   "card_year"
+    t.string   "card_cvc"
+    t.string   "name"
+    t.string   "last_name"
+    t.string   "card_type"
+    t.integer  "user_id"
+    t.integer  "photo_id"
+    t.integer  "cart_id"
+  end
 
   create_table "permissions", :force => true do |t|
     t.integer  "permissible_id"

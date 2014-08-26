@@ -4,6 +4,7 @@ class Photo < ActiveRecord::Base
   belongs_to :album
   has_many :photo_tags, :dependent => :destroy
   has_many :tags, :through => :photo_tags
+  has_many :carts, through: :payments
   
   mount_uploader :file, FileUploader
   

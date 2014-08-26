@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :authentications
+  has_many :payments
   before_save :check_password_nil
 
   acts_as_authentic do |c|
