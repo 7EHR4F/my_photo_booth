@@ -1,0 +1,26 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  database: balder_development
+  pool: 5
+  username: postgres
+  password: 'test'
+  host:     localhost
+  schema_search_path: public
+  min_messages: warning
+
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 5
+
+development:
+  <<: *default
+  database: balder_development
+
+production:
+  <<: *default
+  database: balder_production
+
+test: &TEST
+  <<: *default
+  database: balder_test
