@@ -5,13 +5,16 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
-  helper_method :current_user, :current_user_session
+  helper_method :current_user, :current_user_session, :current_cart
   
   before_filter :setup
 
   
   private
   
+    def current_cart
+      current_user.carts.last
+    end
     def setup
       redirect_to new_account_path if User.all.length == 0
     end

@@ -1,11 +1,13 @@
 Balder::Application.routes.draw do
+  resources :photo_carts
+
   resources :carts
 
-  get "/add_to_cart" => 'carts#add_to_cart', as: 'add_to_cart'
 
   resources :payments
 
-
+  get "add_to_cart" => 'photo_carts#add_to_cart', as: 'add_to_cart'
+  get "remove_from_cart" => 'photo_carts#remove_from_cart', as: 'remove_from_cart'
   resource :account, :controller => :users
   match "login", :to => "user_sessions#new", :as => :login
   match "authenticate", :to => "user_sessions#create", :as => :authenticate

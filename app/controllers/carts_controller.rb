@@ -2,7 +2,7 @@ class CartsController < ApplicationController
   # GET /carts
   # GET /carts.json
   def index
-    @carts = Cart.all
+    @carts = current_user.carts.last
 
     respond_to do |format|
       format.html # index.html.erb
@@ -11,7 +11,7 @@ class CartsController < ApplicationController
   end
 
   def add_to_cart
-
+    
   end
   # GET /carts/1
   # GET /carts/1.json

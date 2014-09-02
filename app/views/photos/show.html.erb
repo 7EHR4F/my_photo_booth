@@ -16,7 +16,9 @@
 	</div>
   <p><%= link_to_if @next, image_tag(@photo.file.single.url ), [ @photo.album.collections.first, @photo.album, @next] %></p>
 </div>
-<%= link_to "Acheter cette photographie", add_to_cart_path(:id => @photo.id), :data => {target: @photo.id}, remote: true %>
+<%= link_to "Ajouter cette photographie au panier", photo_carts_path(photo_id: @photo.id), method: :post, remote: true %>
+</br>
+<%= link_to "Supprimer cette photographie du panier", photo_cart_path(photo_id: @photo.id), method: :delete, remote: true %>
 
 <p><%= @photo.description %></p>
 <p>Tagged with: 

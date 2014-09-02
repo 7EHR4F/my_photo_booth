@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
   has_many :authentications
   has_many :payments
+  has_many :carts
   before_save :check_password_nil
-
+  after_create :create_cart
   acts_as_authentic do |c|
     c.merge_validates_confirmation_of_password_field_options({:unless => :networked?})
     c.merge_validates_length_of_password_field_options({:unless => :networked?})
@@ -27,5 +28,9 @@ class User < ActiveRecord::Base
     if not omniauth['info']['name'].to_s.empty?
       self.name = omniauth['info']['name'] if self.name.to_s.empty?
     end
+  end
+
+  def create_cart
+    Cart.create(user_id: self.id)
   end
 end

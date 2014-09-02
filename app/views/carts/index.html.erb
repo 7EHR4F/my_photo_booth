@@ -1,23 +1,20 @@
-<h1>Listing carts</h1>
-
-<table>
-  <tr>
-    <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @carts.each do |cart| %>
-  <tr>
-    <td><%= cart.user_id %></td>
-    <td><%= link_to 'Show', cart %></td>
-    <td><%= link_to 'Edit', edit_cart_path(cart) %></td>
-    <td><%= link_to 'Destroy', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+<h1>Votre panier</h1>
+    <% @photos = current_cart.photo_carts %>
+    <% @photos.each do |p| %>
+      <div>
+      <%= image_tag(p.photo.file.album.url) %>
+      <%= link_to 'Supprimer', remove_from_cart_path(photo_id: p.photo.id), remote: true, class: 'delete_from_cart' %>
+      </div>
+</br>
+      </br>
+    <% end %>
 
 <br />
-
-<%= link_to 'New Cart', new_cart_path %>
+<script type="text/javascript">
+  $(document).ready(function(){
+      $('.delete_from_cart').click(function(e) {
+        e.preventDefault();
+        $(this).parent().remove();
+        });
+      });
+</script>
