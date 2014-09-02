@@ -10538,3 +10538,1016 @@ Processing by CartsController#index as HTML
   [1m[35mPhotoCart Load (0.7ms)[0m  SELECT "photo_carts".* FROM "photo_carts" WHERE "photo_carts"."cart_id" = 4
   Rendered carts/index.html.erb within layouts/application (3.5ms)
 Completed 200 OK in 24.6ms (Views: 9.3ms | ActiveRecord: 5.7ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-02 21:14:22 +0200
+Processing by CollectionsController#index as HTML
+  [1m[36mUser Load (2.6ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mCollection Load (2.1ms)[0m  SELECT "collections".* FROM "collections" ORDER BY title
+  [1m[36m (2.8ms)[0m  [1mSELECT COUNT(*) FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2[0m
+  [1m[35mAlbum Load (1.9ms)[0m  SELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 LIMIT 1
+  [1m[36m (2.0ms)[0m  [1mSELECT COUNT(*) FROM "photos" WHERE "photos"."album_id" = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 LIMIT 1
+  [1m[36mPhoto Load (1.1ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 2 LIMIT 1[0m
+  [1m[35mAlbum Load (1.5ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  Rendered collections/index.html.erb within layouts/application (376.3ms)
+Completed 200 OK in 618.5ms (Views: 428.7ms | ActiveRecord: 61.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-02 21:14:27 +0200
+Processing by CollectionsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mCollection Load (0.7ms)[0m  SELECT "collections".* FROM "collections" ORDER BY title
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2[0m
+  [1m[35mAlbum Load (0.6ms)[0m  SELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 LIMIT 1
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "photos" WHERE "photos"."album_id" = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 LIMIT 1
+  [1m[36mPhoto Load (0.7ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 2 LIMIT 1[0m
+  [1m[35mAlbum Load (0.4ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  Rendered collections/index.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 19.0ms (Views: 11.7ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-02 21:14:28 +0200
+Processing by CollectionsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mCollection Load (0.7ms)[0m  SELECT "collections".* FROM "collections" ORDER BY title
+  [1m[36m (0.9ms)[0m  [1mSELECT COUNT(*) FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2[0m
+  [1m[35mAlbum Load (0.8ms)[0m  SELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 LIMIT 1
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "photos" WHERE "photos"."album_id" = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 LIMIT 1
+  [1m[36mPhoto Load (0.6ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 2 LIMIT 1[0m
+  [1m[35mAlbum Load (0.5ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  Rendered collections/index.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 19.7ms (Views: 13.4ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-02 21:14:29 +0200
+Processing by CollectionsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mCollection Load (0.3ms)[0m  SELECT "collections".* FROM "collections" ORDER BY title
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2[0m
+  [1m[35mAlbum Load (0.7ms)[0m  SELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 LIMIT 1
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "photos" WHERE "photos"."album_id" = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 LIMIT 1
+  [1m[36mPhoto Load (0.6ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 2 LIMIT 1[0m
+  [1m[35mAlbum Load (0.5ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  Rendered collections/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 15.7ms (Views: 10.1ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2014-09-02 21:14:40 +0200
+Processing by Admin::UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users" [0m
+Redirected to http://127.0.0.1:3000/login
+Filter chain halted as :require_role_admin rendered or redirected
+Completed 302 Found in 6.1ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2014-09-02 21:14:40 +0200
+Processing by UserSessionsController#new as HTML
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" 
+  Rendered user_sessions/new.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 18.9ms (Views: 14.3ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/authenticate" for 127.0.0.1 at 2014-09-02 21:14:45 +0200
+Processing by UserSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"buYN/h4E9fDFXDr6+lXHZ1XRnVDgeDQAjCU547+ufo4=", "user_session"=>{"email"=>"tehrafff@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login"}
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mUser Load (2.0ms)[0m  SELECT "users".* FROM "users" WHERE LOWER("users"."email") = LOWER('tehrafff@gmail.com') LIMIT 1
+  [1m[36m (0.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.9ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 3
+  [1m[36m (1.4ms)[0m  [1mUPDATE "users" SET "login_count" = 3, "last_login_at" = '2014-09-02 11:38:56.444661', "current_login_at" = '2014-09-02 19:14:45.458210', "last_request_at" = '2014-09-02 19:14:45.458955', "perishable_token" = 'eTFsYIT0Dh8AWpGMZlI', "updated_at" = '2014-09-02 19:14:45.479861' WHERE "users"."id" = 3[0m
+  [1m[35m (0.8ms)[0m  COMMIT
+Redirected to http://127.0.0.1:3000/users/sign_in
+Completed 302 Found in 51.3ms (ActiveRecord: 11.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2014-09-02 21:14:45 +0200
+Processing by Admin::UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 3
+  [1m[36m (0.8ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-02 19:14:45.523060', "perishable_token" = 'NkdN35khueF8ZQVGNTYe', "updated_at" = '2014-09-02 19:14:45.527518' WHERE "users"."id" = 3[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36mRole Load (1.4ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 3 AND "role_memberships"."roleable_type" = 'User'[0m
+Redirected to http://127.0.0.1:3000/account
+Filter chain halted as :require_role_admin rendered or redirected
+Completed 302 Found in 67.7ms (ActiveRecord: 14.0ms)
+
+
+Started GET "/account" for 127.0.0.1 at 2014-09-02 21:14:45 +0200
+Processing by UsersController#show as HTML
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 3
+  [1m[36m (0.8ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-02 19:14:45.650458', "perishable_token" = 'sc3n91K3cDazEQzrPgsr', "updated_at" = '2014-09-02 19:14:45.654315' WHERE "users"."id" = 3[0m
+  [1m[35m (0.8ms)[0m  COMMIT
+  Rendered users/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 26.4ms (Views: 11.9ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-02 21:14:48 +0200
+Processing by CollectionsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mCollection Load (0.4ms)[0m  SELECT "collections".* FROM "collections" ORDER BY title
+  [1m[36m (1.2ms)[0m  [1mSELECT COUNT(*) FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2[0m
+  [1m[35mAlbum Load (1.1ms)[0m  SELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 LIMIT 1
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "photos" WHERE "photos"."album_id" = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 LIMIT 1
+  [1m[36mPhoto Load (0.7ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 2 LIMIT 1[0m
+  [1m[35mAlbum Load (0.4ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 3[0m
+  [1m[35m (0.7ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-02 19:14:49.008230', "perishable_token" = 'eX5BL3O50BxKIMxQO4Q', "updated_at" = '2014-09-02 19:14:49.011575' WHERE "users"."id" = 3
+  [1m[36m (1.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (0.8ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 3 AND "role_memberships"."roleable_type" = 'User'
+  Rendered collections/index.html.erb within layouts/application (24.1ms)
+Completed 200 OK in 30.9ms (Views: 18.8ms | ActiveRecord: 10.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-02 21:14:57 +0200
+Processing by CollectionsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mCollection Load (0.6ms)[0m  SELECT "collections".* FROM "collections" ORDER BY title
+  [1m[36m (1.1ms)[0m  [1mSELECT COUNT(*) FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2[0m
+  [1m[35mAlbum Load (1.0ms)[0m  SELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 LIMIT 1
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "photos" WHERE "photos"."album_id" = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 LIMIT 1
+  [1m[36mPhoto Load (0.8ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 2 LIMIT 1[0m
+  [1m[35mAlbum Load (0.7ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 3[0m
+  [1m[35m (0.8ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-02 19:14:57.763529', "perishable_token" = 'ESI81vBHftVswTDccL2v', "updated_at" = '2014-09-02 19:14:57.766024' WHERE "users"."id" = 3
+  [1m[36m (1.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (0.8ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 3 AND "role_memberships"."roleable_type" = 'User'
+  Rendered collections/index.html.erb within layouts/application (23.1ms)
+Completed 200 OK in 31.8ms (Views: 19.2ms | ActiveRecord: 11.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-02 21:15:02 +0200
+Processing by CollectionsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mCollection Load (0.5ms)[0m  SELECT "collections".* FROM "collections" ORDER BY title
+  [1m[36m (0.9ms)[0m  [1mSELECT COUNT(*) FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2[0m
+  [1m[35mAlbum Load (0.8ms)[0m  SELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 LIMIT 1
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "photos" WHERE "photos"."album_id" = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 LIMIT 1
+  [1m[36mPhoto Load (0.6ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 2 LIMIT 1[0m
+  [1m[35mAlbum Load (0.6ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 3[0m
+  [1m[35m (0.7ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-02 19:15:02.572788', "perishable_token" = 'mNk4qSwxau09kko0tYO', "updated_at" = '2014-09-02 19:15:02.575140' WHERE "users"."id" = 3
+  [1m[36m (2.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (1.0ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 3 AND "role_memberships"."roleable_type" = 'User'
+  Rendered collections/index.html.erb within layouts/application (25.5ms)
+Completed 200 OK in 31.8ms (Views: 19.4ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/photod" for 127.0.0.1 at 2014-09-02 21:15:10 +0200
+
+ActionController::RoutingError (No route matches [GET] "/photod"):
+  actionpack (3.2.18) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.18) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.18) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.18) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.18) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.18) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.18) lib/rails/engine.rb:484:in `call'
+  railties (3.2.18) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.18) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/tehrafff/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /home/tehrafff/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /home/tehrafff/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/photos" for 127.0.0.1 at 2014-09-02 21:15:12 +0200
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mPhoto Load (0.9ms)[0m  SELECT "photos".* FROM "photos" ORDER BY photos.id ASC
+  [1m[36mAlbum Load (0.7ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35mCollection Load (1.2ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  Rendered photos/_thumb.html.erb (32.6ms)
+  Rendered photos/index.html.erb within layouts/application (37.1ms)
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 3[0m
+  [1m[35m (0.5ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-02 19:15:12.157762', "perishable_token" = '2MZJX2pV778zxS1ZZ1S', "updated_at" = '2014-09-02 19:15:12.159929' WHERE "users"."id" = 3
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 53.8ms (Views: 45.3ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/photos/new" for 127.0.0.1 at 2014-09-02 21:15:19 +0200
+Processing by PhotosController#new as HTML
+  [1m[35mUser Load (2.9ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 3[0m
+  [1m[35m (0.5ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-02 19:15:19.039156', "perishable_token" = 'wl4kjsiU8Jiy43xkPmbg', "updated_at" = '2014-09-02 19:15:19.042378' WHERE "users"."id" = 3
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (0.6ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 3 AND "role_memberships"."roleable_type" = 'User'
+Redirected to http://127.0.0.1:3000/account
+Filter chain halted as :require_role_admin rendered or redirected
+Completed 302 Found in 17.4ms (ActiveRecord: 6.3ms)
+
+
+Started GET "/account" for 127.0.0.1 at 2014-09-02 21:15:19 +0200
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 3[0m
+  [1m[35m (0.4ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-02 19:15:19.062299', "perishable_token" = 'kSAJ8lRka3a0pOSrZtl', "updated_at" = '2014-09-02 19:15:19.064147' WHERE "users"."id" = 3
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  Rendered users/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 11.3ms (Views: 4.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/album/new" for 127.0.0.1 at 2014-09-02 21:15:28 +0200
+
+ActionController::RoutingError (No route matches [GET] "/album/new"):
+  actionpack (3.2.18) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.18) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.18) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.18) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.18) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.18) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.18) lib/rails/engine.rb:484:in `call'
+  railties (3.2.18) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.18) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/tehrafff/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /home/tehrafff/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /home/tehrafff/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/albums/new" for 127.0.0.1 at 2014-09-02 21:15:31 +0200
+Processing by AlbumsController#new as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 3[0m
+  [1m[35m (0.5ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-02 19:15:31.874170', "perishable_token" = 'hZFQmbSQJr3DNciKPXLz', "updated_at" = '2014-09-02 19:15:31.876949' WHERE "users"."id" = 3
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (0.5ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 3 AND "role_memberships"."roleable_type" = 'User'
+Redirected to http://127.0.0.1:3000/account
+Filter chain halted as :require_role_admin rendered or redirected
+Completed 302 Found in 14.6ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/account" for 127.0.0.1 at 2014-09-02 21:15:31 +0200
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 3[0m
+  [1m[35m (0.7ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-02 19:15:31.893139', "perishable_token" = 'H1lCMDtLLOBXdAIG6Is', "updated_at" = '2014-09-02 19:15:31.895594' WHERE "users"."id" = 3
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  Rendered users/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 16.4ms (Views: 8.1ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-02 21:15:37 +0200
+Processing by CollectionsController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mCollection Load (0.7ms)[0m  [1mSELECT "collections".* FROM "collections" ORDER BY title[0m
+  [1m[35m (1.2ms)[0m  SELECT COUNT(*) FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2
+  [1m[36mAlbum Load (0.6ms)[0m  [1mSELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "photos" WHERE "photos"."album_id" = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 LIMIT 1[0m
+  [1m[35mPhoto Load (0.6ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 2 LIMIT 1
+  [1m[36mAlbum Load (0.5ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 3
+  [1m[36m (0.6ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-02 19:15:37.831031', "perishable_token" = 'ZzE8eWDrNHCKUyzbanVG', "updated_at" = '2014-09-02 19:15:37.834175' WHERE "users"."id" = 3[0m
+  [1m[35m (3.0ms)[0m  COMMIT
+  [1m[36mRole Load (0.9ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 3 AND "role_memberships"."roleable_type" = 'User'[0m
+  Rendered collections/index.html.erb within layouts/application (26.4ms)
+Completed 200 OK in 35.1ms (Views: 22.2ms | ActiveRecord: 11.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-02 21:15:40 +0200
+Processing by CollectionsController#index as HTML
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mCollection Load (0.7ms)[0m  [1mSELECT "collections".* FROM "collections" ORDER BY title[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2
+  [1m[36mAlbum Load (1.0ms)[0m  [1mSELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 LIMIT 1[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "photos" WHERE "photos"."album_id" = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 LIMIT 1[0m
+  [1m[35mPhoto Load (0.9ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 2 LIMIT 1
+  [1m[36mAlbum Load (0.8ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 3
+  [1m[36m (0.8ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-02 19:15:40.872055', "perishable_token" = 'F7H0HrAWR5kYshj82nM', "updated_at" = '2014-09-02 19:15:40.874752' WHERE "users"."id" = 3[0m
+  [1m[35m (2.0ms)[0m  COMMIT
+  [1m[36mRole Load (0.8ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 3 AND "role_memberships"."roleable_type" = 'User'[0m
+  Rendered collections/index.html.erb within layouts/application (23.4ms)
+Completed 200 OK in 32.3ms (Views: 19.2ms | ActiveRecord: 11.5ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/albums/new" for 127.0.0.1 at 2014-09-02 21:17:54 +0200
+Processing by AlbumsController#new as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 3[0m
+  [1m[35m (0.5ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-02 19:17:54.258647', "perishable_token" = 'KEytW0qr0YoULfUXKt1J', "updated_at" = '2014-09-02 19:17:54.260399' WHERE "users"."id" = 3
+  [1m[36m (2.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (0.5ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 3 AND "role_memberships"."roleable_type" = 'User'
+Redirected to http://127.0.0.1:3000/account
+Filter chain halted as :require_role_admin rendered or redirected
+Completed 302 Found in 11.6ms (ActiveRecord: 5.1ms)
+
+
+Started GET "/account" for 127.0.0.1 at 2014-09-02 21:17:54 +0200
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 3[0m
+  [1m[35m (0.4ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-02 19:17:54.277658', "perishable_token" = '3AZovznO8zzUfwfzrN', "updated_at" = '2014-09-02 19:17:54.279590' WHERE "users"."id" = 3
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  Rendered users/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 10.7ms (Views: 3.9ms | ActiveRecord: 2.1ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/albums/new" for 127.0.0.1 at 2014-09-02 21:19:04 +0200
+Processing by AlbumsController#new as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 3[0m
+  [1m[35m (0.7ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-02 19:19:04.747760', "perishable_token" = 'lNDdWIuDmGmaJOvuQal', "updated_at" = '2014-09-02 19:19:04.750781' WHERE "users"."id" = 3
+  [1m[36m (2.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (1.0ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 3 AND "role_memberships"."roleable_type" = 'User'
+Redirected to http://127.0.0.1:3000/account
+Filter chain halted as :require_role_admin rendered or redirected
+Completed 302 Found in 16.5ms (ActiveRecord: 7.0ms)
+
+
+Started GET "/account" for 127.0.0.1 at 2014-09-02 21:19:04 +0200
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 3[0m
+  [1m[35m (0.8ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-02 19:19:04.778597', "perishable_token" = 'thxizJiQWbG2DyvPB8o', "updated_at" = '2014-09-02 19:19:04.781939' WHERE "users"."id" = 3
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  Rendered users/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 20.1ms (Views: 8.4ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/account/edit" for 127.0.0.1 at 2014-09-02 21:20:33 +0200
+Processing by UsersController#edit as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 3
+  [1m[36m (0.7ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-02 19:20:33.738208', "perishable_token" = 'OHYx1N0ZJ3DUDWky0C0K', "updated_at" = '2014-09-02 19:20:33.740458' WHERE "users"."id" = 3[0m
+  [1m[35m (2.6ms)[0m  COMMIT
+  Rendered users/_form.html.erb (6.8ms)
+  Rendered users/edit.html.erb within layouts/application (18.4ms)
+Completed 200 OK in 38.4ms (Views: 27.1ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/account" for 127.0.0.1 at 2014-09-02 21:20:37 +0200
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 3[0m
+  [1m[35m (0.9ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-02 19:20:37.323372', "perishable_token" = 'nCmhWw6gANjIT663ZN5V', "updated_at" = '2014-09-02 19:20:37.327037' WHERE "users"."id" = 3
+  [1m[36m (2.0ms)[0m  [1mCOMMIT[0m
+  Rendered users/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 22.6ms (Views: 8.2ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2014-09-02 21:20:51 +0200
+Processing by UserSessionsController#destroy as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 3[0m
+  [1m[35m (0.7ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-02 19:20:51.516198', "perishable_token" = 'Kbb7CN1vc5gF7KKxinrE', "updated_at" = '2014-09-02 19:20:51.519103' WHERE "users"."id" = 3
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 15.4ms (ActiveRecord: 5.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-02 21:20:51 +0200
+Processing by CollectionsController#index as HTML
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mCollection Load (0.6ms)[0m  [1mSELECT "collections".* FROM "collections" ORDER BY title[0m
+  [1m[35m (1.2ms)[0m  SELECT COUNT(*) FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2
+  [1m[36mAlbum Load (1.1ms)[0m  [1mSELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 LIMIT 1[0m
+  [1m[35m (0.8ms)[0m  SELECT COUNT(*) FROM "photos" WHERE "photos"."album_id" = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 LIMIT 1[0m
+  [1m[35mPhoto Load (0.7ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 2 LIMIT 1
+  [1m[36mAlbum Load (0.8ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  Rendered collections/index.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 19.8ms (Views: 11.7ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2014-09-02 21:20:56 +0200
+Processing by Admin::UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" 
+Redirected to http://127.0.0.1:3000/login
+Filter chain halted as :require_role_admin rendered or redirected
+Completed 302 Found in 4.3ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2014-09-02 21:20:56 +0200
+Processing by UserSessionsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  Rendered user_sessions/new.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 22.1ms (Views: 18.6ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/authenticate" for 127.0.0.1 at 2014-09-02 21:21:06 +0200
+Processing by UserSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"buYN/h4E9fDFXDr6+lXHZ1XRnVDgeDQAjCU547+ufo4=", "user_session"=>{"email"=>"tehrafff+1@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE LOWER("users"."email") = LOWER('tehrafff+1@gmail.com') LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (0.7ms)[0m  UPDATE "users" SET "login_count" = 2, "last_login_at" = '2014-08-27 13:15:23.473351', "current_login_at" = '2014-09-02 19:21:06.187446', "last_login_ip" = '127.0.0.1', "last_request_at" = '2014-09-02 19:21:06.187831', "perishable_token" = 'SXltQDcLWpX6GkXTiCFQ', "updated_at" = '2014-09-02 19:21:06.190881' WHERE "users"."id" = 4
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://127.0.0.1:3000/users/sign_in
+Completed 302 Found in 13.5ms (ActiveRecord: 4.2ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2014-09-02 21:21:06 +0200
+Processing by Admin::UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (0.9ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-02 19:21:06.216490', "perishable_token" = '9ufjXuDWkQOkhxD9t2zt', "updated_at" = '2014-09-02 19:21:06.219656' WHERE "users"."id" = 4
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (1.0ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'
+Redirected to http://127.0.0.1:3000/account
+Filter chain halted as :require_role_admin rendered or redirected
+Completed 302 Found in 18.0ms (ActiveRecord: 6.1ms)
+
+
+Started GET "/account" for 127.0.0.1 at 2014-09-02 21:21:06 +0200
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (0.8ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-02 19:21:06.283687', "perishable_token" = 'sUwPziybtA1bUJqCXLc', "updated_at" = '2014-09-02 19:21:06.287106' WHERE "users"."id" = 4
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  Rendered users/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 19.9ms (Views: 7.8ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/albums/" for 127.0.0.1 at 2014-09-02 21:21:13 +0200
+Processing by AlbumsController#index as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mAlbum Load (1.0ms)[0m  [1mSELECT "albums".* FROM "albums" ORDER BY title[0m
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "photos" WHERE "photos"."album_id" = 1
+  [1m[36mPhoto Load (1.0ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 1 LIMIT 5 OFFSET 1[0m
+  Rendered photos/_thumb.html.erb (0.0ms)
+  [1m[35m (0.8ms)[0m  SELECT COUNT(*) FROM "photos" WHERE "photos"."album_id" = 2
+  [1m[36mPhoto Load (0.8ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 2 LIMIT 1[0m
+  [1m[35mAlbum Load (1.0ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  [1m[36mCollection Load (1.1ms)[0m  [1mSELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1[0m
+  Rendered photos/_thumb.html.erb (10.8ms)
+  [1m[35mPhoto Load (1.4ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 2 LIMIT 5 OFFSET 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  Rendered photos/_thumb.html.erb (20.0ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (0.8ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-02 19:21:13.478246', "perishable_token" = 'AqRnFEX1H0TckT14qxKk', "updated_at" = '2014-09-02 19:21:13.480461' WHERE "users"."id" = 4
+  [1m[36m (1.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (0.7ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'
+  Rendered albums/index.html.erb within layouts/application (61.6ms)
+Completed 200 OK in 77.6ms (Views: 59.2ms | ActiveRecord: 14.2ms)
+
+
+Started GET "/albums/new" for 127.0.0.1 at 2014-09-02 21:21:18 +0200
+Processing by AlbumsController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.5ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-02 19:21:18.055176', "perishable_token" = 'BGYafi3P6GsblQrw9MiC', "updated_at" = '2014-09-02 19:21:18.057117' WHERE "users"."id" = 4[0m
+  [1m[35m (2.9ms)[0m  COMMIT
+  [1m[36mRole Load (0.8ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'[0m
+Redirected to http://127.0.0.1:3000/account
+Filter chain halted as :require_role_admin rendered or redirected
+Completed 302 Found in 13.3ms (ActiveRecord: 6.3ms)
+
+
+Started GET "/account" for 127.0.0.1 at 2014-09-02 21:21:18 +0200
+Processing by UsersController#show as HTML
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.8ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-02 19:21:18.082740', "perishable_token" = 'Yip56UKSyjghuQ3In3jT', "updated_at" = '2014-09-02 19:21:18.086032' WHERE "users"."id" = 4[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+  Rendered users/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 19.4ms (Views: 7.8ms | ActiveRecord: 3.8ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/albums/new" for 127.0.0.1 at 2014-09-02 21:33:11 +0200
+Processing by AlbumsController#new as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mUser Load (6.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.9ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (1.0ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-02 19:33:11.522817', "perishable_token" = 'ke60j4DDjdndQkNpEnf', "updated_at" = '2014-09-02 19:33:11.535715' WHERE "users"."id" = 4[0m
+  [1m[35m (3.3ms)[0m  COMMIT
+  [1m[36mRole Load (2.5ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'[0m
+  [1m[35mRole Load (1.2ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'
+  [1m[36mTag Load (1.0ms)[0m  [1mSELECT "tags".* FROM "tags" [0m
+  Rendered albums/_form.html.erb (47.7ms)
+  Rendered albums/new.html.erb within layouts/application (53.1ms)
+Completed 200 OK in 314.1ms (Views: 50.5ms | ActiveRecord: 48.3ms)
+
+
+Started POST "/albums" for 127.0.0.1 at 2014-09-02 21:33:27 +0200
+Processing by AlbumsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"buYN/h4E9fDFXDr6+lXHZ1XRnVDgeDQAjCU547+ufo4=", "all_tags"=>"''", "collection_id"=>"", "album"=>{"id"=>"", "latitude"=>"", "longitude"=>"", "title"=>"test", "description"=>"test", "address"=>"test", "note"=>"test", "tags"=>"test"}, "commit"=>"Create"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (0.8ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-02 19:33:27.481060', "perishable_token" = 'kIhG9e6wJfQUwE5XaacC', "updated_at" = '2014-09-02 19:33:27.484812' WHERE "users"."id" = 4
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (1.0ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'
+  [1m[36mRole Load (0.8ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'[0m
+WARNING: Can't mass-assign protected attributes: id
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mAlbum Exists (1.3ms)[0m  [1mSELECT 1 AS one FROM "albums" WHERE "albums"."path" = 'test' LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36mTag Load (0.8ms)[0m  [1mSELECT "tags".* FROM "tags" [0m
+  Rendered albums/_form.html.erb (8.4ms)
+  Rendered albums/new.html.erb within layouts/application (13.2ms)
+Completed 200 OK in 52.6ms (Views: 19.4ms | ActiveRecord: 9.1ms)
+
+
+Started POST "/albums" for 127.0.0.1 at 2014-09-02 21:33:36 +0200
+Processing by AlbumsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"buYN/h4E9fDFXDr6+lXHZ1XRnVDgeDQAjCU547+ufo4=", "all_tags"=>"''", "collection_id"=>"", "album"=>{"id"=>"", "latitude"=>"", "longitude"=>"", "title"=>"test3", "description"=>"test", "address"=>"test", "note"=>"test", "tags"=>""}, "commit"=>"Create"}
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (0.9ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-02 19:33:36.645744', "perishable_token" = '0EzAuJq69OWJmHw8Blw', "updated_at" = '2014-09-02 19:33:36.649780' WHERE "users"."id" = 4
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (1.0ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'
+  [1m[36mRole Load (0.9ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'[0m
+WARNING: Can't mass-assign protected attributes: id
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mAlbum Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM "albums" WHERE "albums"."path" = 'test3' LIMIT 1[0m
+  [1m[35mSQL (3.0ms)[0m  INSERT INTO "albums" ("address", "created_at", "description", "latitude", "longitude", "note", "path", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["address", "test"], ["created_at", Tue, 02 Sep 2014 19:33:36 UTC +00:00], ["description", "test"], ["latitude", nil], ["longitude", nil], ["note", "test"], ["path", "test3"], ["title", "test3"], ["updated_at", Tue, 02 Sep 2014 19:33:36 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mCollection Load (1.7ms)[0m  SELECT "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT 1  [["id", ""]]
+Completed 404 Not Found in 58.9ms
+
+ActiveRecord::RecordNotFound (Couldn't find Collection with id=):
+  app/controllers/albums_controller.rb:61:in `create'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (74.6ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.9ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (88.0ms)
+
+
+Started POST "/albums" for 127.0.0.1 at 2014-09-02 21:35:36 +0200
+Processing by AlbumsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"buYN/h4E9fDFXDr6+lXHZ1XRnVDgeDQAjCU547+ufo4=", "all_tags"=>"''", "collection_id"=>"", "album"=>{"id"=>"", "latitude"=>"", "longitude"=>"", "title"=>"test3", "description"=>"test", "address"=>"test", "note"=>"test", "tags"=>""}, "commit"=>"Create"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.9ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-02 19:35:36.997550', "perishable_token" = 'Vj9zbYLUJ08LHzYRL1', "updated_at" = '2014-09-02 19:35:37.001427' WHERE "users"."id" = 4[0m
+  [1m[35m (2.2ms)[0m  COMMIT
+  [1m[36mRole Load (1.2ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'[0m
+  [1m[35mRole Load (0.9ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'
+WARNING: Can't mass-assign protected attributes: id
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mAlbum Exists (0.7ms)[0m  SELECT 1 AS one FROM "albums" WHERE "albums"."path" = 'test3' LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35mTag Load (0.8ms)[0m  SELECT "tags".* FROM "tags" 
+  Rendered albums/_form.html.erb (8.1ms)
+  Rendered albums/new.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 48.0ms (Views: 16.3ms | ActiveRecord: 10.8ms)
+
+
+Started POST "/albums" for 127.0.0.1 at 2014-09-02 21:36:02 +0200
+Processing by AlbumsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"buYN/h4E9fDFXDr6+lXHZ1XRnVDgeDQAjCU547+ufo4=", "all_tags"=>"''", "collection_id"=>"", "album"=>{"id"=>"", "latitude"=>"", "longitude"=>"", "title"=>"wololo", "description"=>"wololo", "address"=>"wololo", "note"=>"lololol", "tags"=>""}, "commit"=>"Create"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.7ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-02 19:36:02.828617', "perishable_token" = 'PsYhdxVqr1TryhrAUJ', "updated_at" = '2014-09-02 19:36:02.831667' WHERE "users"."id" = 4[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36mRole Load (0.8ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'[0m
+  [1m[35mRole Load (0.8ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'
+WARNING: Can't mass-assign protected attributes: id
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mAlbum Exists (0.7ms)[0m  SELECT 1 AS one FROM "albums" WHERE "albums"."path" = 'wololo' LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "albums" ("address", "created_at", "description", "latitude", "longitude", "note", "path", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["address", "wololo"], ["created_at", Tue, 02 Sep 2014 19:36:02 UTC +00:00], ["description", "wololo"], ["latitude", nil], ["longitude", nil], ["note", "lololol"], ["path", "wololo"], ["title", "wololo"], ["updated_at", Tue, 02 Sep 2014 19:36:02 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36mCollection Load (0.5ms)[0m  [1mSELECT "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT 1[0m  [["id", ""]]
+Completed 404 Not Found in 22.4ms
+
+ActiveRecord::RecordNotFound (Couldn't find Collection with id=):
+  app/controllers/albums_controller.rb:61:in `create'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.9ms)
+
+
+Started POST "/albums" for 127.0.0.1 at 2014-09-02 21:38:01 +0200
+Processing by AlbumsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"buYN/h4E9fDFXDr6+lXHZ1XRnVDgeDQAjCU547+ufo4=", "all_tags"=>"''", "collection_id"=>"", "album"=>{"id"=>"", "latitude"=>"", "longitude"=>"", "title"=>"wololo", "description"=>"wololo", "address"=>"wololo", "note"=>"lololol", "tags"=>"etwtwetw"}, "commit"=>"Create"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (0.8ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-02 19:38:01.945679', "perishable_token" = '3eFbmEA5I1E9GOry0uQ', "updated_at" = '2014-09-02 19:38:01.949719' WHERE "users"."id" = 4
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (1.0ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'
+  [1m[36mRole Load (0.9ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'[0m
+WARNING: Can't mass-assign protected attributes: id
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mAlbum Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM "albums" WHERE "albums"."path" = 'wololo' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36mTag Load (0.7ms)[0m  [1mSELECT "tags".* FROM "tags" [0m
+  Rendered albums/_form.html.erb (8.1ms)
+  Rendered albums/new.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 45.8ms (Views: 16.5ms | ActiveRecord: 9.0ms)
+
+
+Started POST "/albums" for 127.0.0.1 at 2014-09-02 21:38:09 +0200
+Processing by AlbumsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"buYN/h4E9fDFXDr6+lXHZ1XRnVDgeDQAjCU547+ufo4=", "all_tags"=>"''", "collection_id"=>"", "album"=>{"id"=>"", "latitude"=>"", "longitude"=>"", "title"=>"wololo2", "description"=>"wololo", "address"=>"wololo", "note"=>"lololol", "tags"=>"twt ewtwet"}, "commit"=>"Create"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (0.8ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-02 19:38:09.191045', "perishable_token" = '3KZqgksKRH1qcktLP7u', "updated_at" = '2014-09-02 19:38:09.194615' WHERE "users"."id" = 4
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (1.0ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'
+  [1m[36mRole Load (0.9ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'[0m
+WARNING: Can't mass-assign protected attributes: id
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mAlbum Exists (0.8ms)[0m  [1mSELECT 1 AS one FROM "albums" WHERE "albums"."path" = 'wololo2' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "albums" ("address", "created_at", "description", "latitude", "longitude", "note", "path", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["address", "wololo"], ["created_at", Tue, 02 Sep 2014 19:38:09 UTC +00:00], ["description", "wololo"], ["latitude", nil], ["longitude", nil], ["note", "lololol"], ["path", "wololo2"], ["title", "wololo2"], ["updated_at", Tue, 02 Sep 2014 19:38:09 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mCollection Load (0.6ms)[0m  SELECT "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT 1  [["id", ""]]
+Completed 404 Not Found in 29.7ms
+
+ActiveRecord::RecordNotFound (Couldn't find Collection with id=):
+  app/controllers/albums_controller.rb:61:in `create'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.4ms)
+
+
+Started GET "/collections" for 127.0.0.1 at 2014-09-02 21:38:30 +0200
+Processing by CollectionsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mCollection Load (1.1ms)[0m  SELECT "collections".* FROM "collections" ORDER BY title
+  [1m[36m (1.5ms)[0m  [1mSELECT COUNT(*) FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2[0m
+  [1m[35mAlbum Load (1.2ms)[0m  SELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 LIMIT 1
+  [1m[36m (1.2ms)[0m  [1mSELECT COUNT(*) FROM "photos" WHERE "photos"."album_id" = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 LIMIT 1
+  [1m[36mPhoto Load (0.8ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 2 LIMIT 1[0m
+  [1m[35mAlbum Load (0.8ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (0.7ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-02 19:38:30.350932', "perishable_token" = '69xyYpEHNgsecNXEPEk', "updated_at" = '2014-09-02 19:38:30.353403' WHERE "users"."id" = 4
+  [1m[36m (2.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (1.0ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'
+  [1m[36mRole Load (0.6ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'[0m
+  Rendered collections/index.html.erb within layouts/application (125.5ms)
+Completed 200 OK in 140.2ms (Views: 113.9ms | ActiveRecord: 18.6ms)
+
+
+Started GET "/collections/2-test" for 127.0.0.1 at 2014-09-02 21:38:32 +0200
+Processing by CollectionsController#show as HTML
+  Parameters: {"id"=>"2-test"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mCollection Load (0.6ms)[0m  [1mSELECT "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT 1[0m  [["id", "2-test"]]
+  [1m[35mAlbum Load (1.3ms)[0m  SELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 ORDER BY title
+  [1m[36m (0.9ms)[0m  [1mSELECT COUNT(*) FROM "photos" WHERE "photos"."album_id" = 2[0m
+  [1m[35mPhoto Load (0.7ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 2 LIMIT 1
+  [1m[36mAlbum Load (0.9ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35mCollection Load (1.1ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  Rendered photos/_thumb.html.erb (12.5ms)
+  [1m[36mPhoto Load (1.3ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 2 LIMIT 5 OFFSET 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1[0m
+  Rendered photos/_thumb.html.erb (21.9ms)
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.8ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-02 19:38:32.313671', "perishable_token" = 'KjdOJptRwvtjCECN4f8', "updated_at" = '2014-09-02 19:38:32.316216' WHERE "users"."id" = 4[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36mRole Load (1.1ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'[0m
+  [1m[35mRole Load (0.5ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'
+  Rendered collections/show.html.erb within layouts/application (60.9ms)
+Completed 200 OK in 77.9ms (Views: 59.2ms | ActiveRecord: 13.4ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/albums/" for 127.0.0.1 at 2014-09-02 21:39:01 +0200
+Processing by AlbumsController#index as HTML
+  [1m[36mUser Load (4.0ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mAlbum Load (2.0ms)[0m  SELECT "albums".* FROM "albums" ORDER BY title
+  [1m[36m (1.2ms)[0m  [1mSELECT COUNT(*) FROM "photos" WHERE "photos"."album_id" = 1[0m
+  [1m[35mPhoto Load (1.2ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 1 LIMIT 5 OFFSET 1
+  Rendered photos/_thumb.html.erb (0.0ms)
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "photos" WHERE "photos"."album_id" = 2[0m
+  [1m[35mPhoto Load (0.8ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 2 LIMIT 1
+  [1m[36mAlbum Load (1.1ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35mCollection Load (1.6ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  Rendered photos/_thumb.html.erb (54.1ms)
+  [1m[36mPhoto Load (1.3ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 2 LIMIT 5 OFFSET 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1[0m
+  Rendered photos/_thumb.html.erb (73.4ms)
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "photos" WHERE "photos"."album_id" = 3
+  [1m[36mPhoto Load (0.6ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 3 LIMIT 5 OFFSET 1[0m
+  Rendered photos/_thumb.html.erb (0.0ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "photos" WHERE "photos"."album_id" = 4
+  [1m[36mPhoto Load (0.4ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 4 LIMIT 5 OFFSET 1[0m
+  Rendered photos/_thumb.html.erb (0.0ms)
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "photos" WHERE "photos"."album_id" = 5
+  [1m[36mPhoto Load (0.7ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 5 LIMIT 5 OFFSET 1[0m
+  Rendered photos/_thumb.html.erb (0.0ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (1.1ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-02 19:39:02.212028', "perishable_token" = '7Ex6je71xovwNPIGv8x', "updated_at" = '2014-09-02 19:39:02.227402' WHERE "users"."id" = 4[0m
+  [1m[35m (1.9ms)[0m  COMMIT
+  [1m[36mRole Load (1.1ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'[0m
+  [1m[35mRole Load (0.7ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'
+  Rendered albums/index.html.erb within layouts/application (433.6ms)
+Completed 200 OK in 617.1ms (Views: 404.7ms | ActiveRecord: 59.6ms)
+
+
+Started GET "/albums/1-my-selling-album" for 127.0.0.1 at 2014-09-02 21:39:05 +0200
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"1-my-selling-album"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mAlbum Load (1.1ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT 1  [["id", "1-my-selling-album"]]
+  [1m[36mPhoto Load (1.0ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 1 ORDER BY Id ASC[0m
+  [1m[35mPhoto Load (0.4ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 1
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 1[0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.8ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-02 19:39:06.011044', "perishable_token" = 'ngpumM9MiiEbseQZlyL', "updated_at" = '2014-09-02 19:39:06.013800' WHERE "users"."id" = 4[0m
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36mRole Load (1.0ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'[0m
+  [1m[35mRole Load (0.9ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'
+  Rendered albums/show.html.erb within layouts/application (25.2ms)
+Completed 200 OK in 36.0ms (Views: 23.7ms | ActiveRecord: 9.9ms)
+
+
+Started GET "/albums/5-wololo2" for 127.0.0.1 at 2014-09-02 21:39:15 +0200
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"5-wololo2"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mAlbum Load (0.3ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT 1  [["id", "5-wololo2"]]
+  [1m[36mPhoto Load (0.6ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 5 ORDER BY Id ASC[0m
+  [1m[35mPhoto Load (0.6ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 5
+  [1m[36m (0.9ms)[0m  [1mSELECT COUNT(*) FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 5[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.8ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-02 19:39:15.381070', "perishable_token" = '8791CxgzPkgPqgSDY5ig', "updated_at" = '2014-09-02 19:39:15.383655' WHERE "users"."id" = 4[0m
+  [1m[35m (2.4ms)[0m  COMMIT
+  [1m[36mRole Load (1.0ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'[0m
+  [1m[35mRole Load (0.9ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'
+  Rendered albums/show.html.erb within layouts/application (26.6ms)
+Completed 200 OK in 35.5ms (Views: 23.7ms | ActiveRecord: 10.1ms)
+
+
+Started GET "/albums/5-wololo2/photos/upload" for 127.0.0.1 at 2014-09-02 21:39:22 +0200
+Processing by PhotosController#upload as HTML
+  Parameters: {"album_id"=>"5-wololo2"}
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.9ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-02 19:39:22.244980', "perishable_token" = 'zcWveOI0TP4XW58c9FYA', "updated_at" = '2014-09-02 19:39:22.248969' WHERE "users"."id" = 4[0m
+  [1m[35m (2.8ms)[0m  COMMIT
+  [1m[36mRole Load (1.1ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'[0m
+  [1m[35mRole Load (0.9ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'
+  [1m[36mAlbum Load (0.7ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT 1[0m  [["id", "5-wololo2"]]
+  Rendered photos/upload.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 37.5ms (Views: 11.8ms | ActiveRecord: 9.7ms)
+
+
+Started POST "/photos" for 127.0.0.1 at 2014-09-02 21:39:35 +0200
+Processing by PhotosController#create as HTML
+  Parameters: {"Filename"=>"2014-08-26-162307_1600x900_scrot.png", "_balder_session"=>"BAh7CkkiD3Nlc3Npb25faWQGOgZFVEkiJTg4ZjdmMDI1YTMzNjMzNjdiNTI4ZDBiNzAwODkwN2MxBjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMWJ1WU4vaDRFOWZERlhEcjYrbFhIWjFYUm5WRGdlRFFBakNVNTQ3K3VmbzQ9BjsARkkiFXVzZXJfY3JlZGVudGlhbHMGOwBGSSIBgDRmMzliN2Y5MThmMzdiNTkyNTI1ZDA1YzA0NGI1Njk2NGVkNTZlNGNlMmE3Njc4ZTExMmE5YjY3Zjc4MmRhYTkyNTA2MjQ2MmFmMDkwM2M1Zjc2YmZmOWUzMWEzYmI0YTE3NTEzMjk2NjJhNjk1Mzc5OTc4NmYyYmY4MmU4MjBmBjsAVEkiGHVzZXJfY3JlZGVudGlhbHNfaWQGOwBGaQlJIg5yZXR1cm5fdG8GOwBGSSIQL2FsYnVtcy9uZXcGOwBU--d6bcc33484d7de2bcf5856e84795f7ee7e3d13af", "photo"=>{"album_id"=>"5"}, "authenticity_token"=>"buYN/h4E9fDFXDr6+lXHZ1XRnVDgeDQAjCU547+ufo4=", "name"=>"2014-08-26-162307_1600x900_scrot.png", "file"=>#<ActionDispatch::Http::UploadedFile:0xb0cdb6c @original_filename="2014-08-26-162307_1600x900_scrot.png", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"2014-08-26-162307_1600x900_scrot.png\"\r\nContent-Type: application/octet-stream\r\n", @tempfile=#<Tempfile:/tmp/RackMultipart20140902-4415-sih9y5>>, "Upload"=>"Submit Query"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (0.7ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-02 19:39:35.882879', "perishable_token" = 'si6OGTVHvIiufor5tz1c', "updated_at" = '2014-09-02 19:39:35.885390' WHERE "users"."id" = 4
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (0.7ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'
+  [1m[36mRole Load (0.7ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'[0m
+  [1m[35m (0.8ms)[0m  BEGIN
+  [1m[36mSQL (2.7ms)[0m  [1mINSERT INTO "photos" ("album_id", "created_at", "description", "file", "latitude", "longitude", "path", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["album_id", 5], ["created_at", Tue, 02 Sep 2014 19:39:37 UTC +00:00], ["description", nil], ["file", "2014-08-26-162307_1600x900_scrot.png"], ["latitude", nil], ["longitude", nil], ["path", nil], ["title", "2014 08 26 162307 1600x900 Scrot"], ["updated_at", Tue, 02 Sep 2014 19:39:37 UTC +00:00]]
+  [1m[35mAlbum Load (1.0ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 5 LIMIT 1
+  [1m[36m (2.0ms)[0m  [1mCOMMIT[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 1301.7ms (Views: 2.0ms | ActiveRecord: 11.6ms)
+
+
+Started POST "/photos" for 127.0.0.1 at 2014-09-02 21:39:37 +0200
+Processing by PhotosController#create as HTML
+  Parameters: {"Filename"=>"2014-08-26-162202_1600x900_scrot.png", "_balder_session"=>"BAh7CkkiD3Nlc3Npb25faWQGOgZFVEkiJTg4ZjdmMDI1YTMzNjMzNjdiNTI4ZDBiNzAwODkwN2MxBjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMWJ1WU4vaDRFOWZERlhEcjYrbFhIWjFYUm5WRGdlRFFBakNVNTQ3K3VmbzQ9BjsARkkiFXVzZXJfY3JlZGVudGlhbHMGOwBGSSIBgDRmMzliN2Y5MThmMzdiNTkyNTI1ZDA1YzA0NGI1Njk2NGVkNTZlNGNlMmE3Njc4ZTExMmE5YjY3Zjc4MmRhYTkyNTA2MjQ2MmFmMDkwM2M1Zjc2YmZmOWUzMWEzYmI0YTE3NTEzMjk2NjJhNjk1Mzc5OTc4NmYyYmY4MmU4MjBmBjsAVEkiGHVzZXJfY3JlZGVudGlhbHNfaWQGOwBGaQlJIg5yZXR1cm5fdG8GOwBGSSIQL2FsYnVtcy9uZXcGOwBU--d6bcc33484d7de2bcf5856e84795f7ee7e3d13af", "photo"=>{"album_id"=>"5"}, "authenticity_token"=>"buYN/h4E9fDFXDr6+lXHZ1XRnVDgeDQAjCU547+ufo4=", "name"=>"2014-08-26-162202_1600x900_scrot.png", "file"=>#<ActionDispatch::Http::UploadedFile:0xb0cf480 @original_filename="2014-08-26-162202_1600x900_scrot.png", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"2014-08-26-162202_1600x900_scrot.png\"\r\nContent-Type: application/octet-stream\r\n", @tempfile=#<Tempfile:/tmp/RackMultipart20140902-4415-1c3k4og>>, "Upload"=>"Submit Query"}
+  [1m[35mUser Load (3.8ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (0.5ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-02 19:39:37.246357', "perishable_token" = '7ymumTafSDvVtqjr98i', "updated_at" = '2014-09-02 19:39:37.248894' WHERE "users"."id" = 4
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (0.8ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'
+  [1m[36mRole Load (0.7ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'[0m
+  [1m[35m (0.6ms)[0m  BEGIN
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "photos" ("album_id", "created_at", "description", "file", "latitude", "longitude", "path", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["album_id", 5], ["created_at", Tue, 02 Sep 2014 19:39:38 UTC +00:00], ["description", nil], ["file", "2014-08-26-162202_1600x900_scrot.png"], ["latitude", nil], ["longitude", nil], ["path", nil], ["title", "2014 08 26 162202 1600x900 Scrot"], ["updated_at", Tue, 02 Sep 2014 19:39:38 UTC +00:00]]
+  [1m[35mAlbum Load (0.6ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 5 LIMIT 1
+  [1m[36m (2.3ms)[0m  [1mCOMMIT[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 1241.3ms (Views: 1.1ms | ActiveRecord: 12.6ms)
+
+
+Started POST "/photos" for 127.0.0.1 at 2014-09-02 21:39:38 +0200
+Processing by PhotosController#create as HTML
+  Parameters: {"Filename"=>"2014-08-26-162135_1600x900_scrot.png", "_balder_session"=>"BAh7CkkiD3Nlc3Npb25faWQGOgZFVEkiJTg4ZjdmMDI1YTMzNjMzNjdiNTI4ZDBiNzAwODkwN2MxBjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMWJ1WU4vaDRFOWZERlhEcjYrbFhIWjFYUm5WRGdlRFFBakNVNTQ3K3VmbzQ9BjsARkkiFXVzZXJfY3JlZGVudGlhbHMGOwBGSSIBgDRmMzliN2Y5MThmMzdiNTkyNTI1ZDA1YzA0NGI1Njk2NGVkNTZlNGNlMmE3Njc4ZTExMmE5YjY3Zjc4MmRhYTkyNTA2MjQ2MmFmMDkwM2M1Zjc2YmZmOWUzMWEzYmI0YTE3NTEzMjk2NjJhNjk1Mzc5OTc4NmYyYmY4MmU4MjBmBjsAVEkiGHVzZXJfY3JlZGVudGlhbHNfaWQGOwBGaQlJIg5yZXR1cm5fdG8GOwBGSSIQL2FsYnVtcy9uZXcGOwBU--d6bcc33484d7de2bcf5856e84795f7ee7e3d13af", "photo"=>{"album_id"=>"5"}, "authenticity_token"=>"buYN/h4E9fDFXDr6+lXHZ1XRnVDgeDQAjCU547+ufo4=", "name"=>"2014-08-26-162135_1600x900_scrot.png", "file"=>#<ActionDispatch::Http::UploadedFile:0xb0e0ba4 @original_filename="2014-08-26-162135_1600x900_scrot.png", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"2014-08-26-162135_1600x900_scrot.png\"\r\nContent-Type: application/octet-stream\r\n", @tempfile=#<Tempfile:/tmp/RackMultipart20140902-4415-m8bgvo>>, "Upload"=>"Submit Query"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (0.8ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-02 19:39:38.540284', "perishable_token" = '3pLqTlhfJPqrBriKwEe', "updated_at" = '2014-09-02 19:39:38.544145' WHERE "users"."id" = 4
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (0.8ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'
+  [1m[36mRole Load (0.8ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'[0m
+  [1m[35m (0.7ms)[0m  BEGIN
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "photos" ("album_id", "created_at", "description", "file", "latitude", "longitude", "path", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["album_id", 5], ["created_at", Tue, 02 Sep 2014 19:39:39 UTC +00:00], ["description", nil], ["file", "2014-08-26-162135_1600x900_scrot.png"], ["latitude", nil], ["longitude", nil], ["path", nil], ["title", "2014 08 26 162135 1600x900 Scrot"], ["updated_at", Tue, 02 Sep 2014 19:39:39 UTC +00:00]]
+  [1m[35mAlbum Load (1.0ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 5 LIMIT 1
+  [1m[36m (2.3ms)[0m  [1mCOMMIT[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 1231.5ms (Views: 0.7ms | ActiveRecord: 10.9ms)
+
+
+Started POST "/photos" for 127.0.0.1 at 2014-09-02 21:39:39 +0200
+Processing by PhotosController#create as HTML
+  Parameters: {"Filename"=>"Caraibes.png", "_balder_session"=>"BAh7CkkiD3Nlc3Npb25faWQGOgZFVEkiJTg4ZjdmMDI1YTMzNjMzNjdiNTI4ZDBiNzAwODkwN2MxBjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMWJ1WU4vaDRFOWZERlhEcjYrbFhIWjFYUm5WRGdlRFFBakNVNTQ3K3VmbzQ9BjsARkkiFXVzZXJfY3JlZGVudGlhbHMGOwBGSSIBgDRmMzliN2Y5MThmMzdiNTkyNTI1ZDA1YzA0NGI1Njk2NGVkNTZlNGNlMmE3Njc4ZTExMmE5YjY3Zjc4MmRhYTkyNTA2MjQ2MmFmMDkwM2M1Zjc2YmZmOWUzMWEzYmI0YTE3NTEzMjk2NjJhNjk1Mzc5OTc4NmYyYmY4MmU4MjBmBjsAVEkiGHVzZXJfY3JlZGVudGlhbHNfaWQGOwBGaQlJIg5yZXR1cm5fdG8GOwBGSSIQL2FsYnVtcy9uZXcGOwBU--d6bcc33484d7de2bcf5856e84795f7ee7e3d13af", "photo"=>{"album_id"=>"5"}, "authenticity_token"=>"buYN/h4E9fDFXDr6+lXHZ1XRnVDgeDQAjCU547+ufo4=", "name"=>"Caraibes.png", "file"=>#<ActionDispatch::Http::UploadedFile:0xb0e57d0 @original_filename="Caraibes.png", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Caraibes.png\"\r\nContent-Type: application/octet-stream\r\n", @tempfile=#<Tempfile:/tmp/RackMultipart20140902-4415-1sfv49>>, "Upload"=>"Submit Query"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (0.6ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-02 19:39:39.851638', "perishable_token" = 'DsETK5k1qrqqmgXTTzxZ', "updated_at" = '2014-09-02 19:39:39.854447' WHERE "users"."id" = 4
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (1.0ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'
+  [1m[36mRole Load (0.7ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'[0m
+  [1m[35m (0.7ms)[0m  BEGIN
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "photos" ("album_id", "created_at", "description", "file", "latitude", "longitude", "path", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["album_id", 5], ["created_at", Tue, 02 Sep 2014 19:39:40 UTC +00:00], ["description", nil], ["file", "Caraibes.png"], ["latitude", nil], ["longitude", nil], ["path", nil], ["title", "Caraibes"], ["updated_at", Tue, 02 Sep 2014 19:39:40 UTC +00:00]]
+  [1m[35mAlbum Load (0.9ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 5 LIMIT 1
+  [1m[36m (2.9ms)[0m  [1mCOMMIT[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 1065.1ms (Views: 0.7ms | ActiveRecord: 10.9ms)
+
+
+Started GET "/albums/new" for 127.0.0.1 at 2014-09-02 21:40:34 +0200
+Processing by AlbumsController#new as HTML
+  [1m[35mUser Load (1.8ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (0.7ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-02 19:40:34.740772', "perishable_token" = '0kJ69Cq0nx5ZmpjZ7noA', "updated_at" = '2014-09-02 19:40:34.751586' WHERE "users"."id" = 4
+  [1m[36m (2.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (2.0ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'
+  [1m[36mRole Load (1.2ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'[0m
+  [1m[35mTag Load (0.8ms)[0m  SELECT "tags".* FROM "tags" 
+  Rendered albums/_form.html.erb (37.9ms)
+  Rendered albums/new.html.erb within layouts/application (41.1ms)
+Completed 200 OK in 289.1ms (Views: 39.9ms | ActiveRecord: 39.1ms)
+
+
+Started POST "/albums" for 127.0.0.1 at 2014-09-02 21:40:47 +0200
+Processing by AlbumsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"buYN/h4E9fDFXDr6+lXHZ1XRnVDgeDQAjCU547+ufo4=", "all_tags"=>"''", "collection_id"=>"", "album"=>{"id"=>"", "latitude"=>"", "longitude"=>"", "title"=>"my_last_test", "description"=>"test", "address"=>"test", "note"=>"test", "tags"=>"test"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.7ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-02 19:40:47.691627', "perishable_token" = 'Lhz6vT1Fd9Gn9mTLc5Z', "updated_at" = '2014-09-02 19:40:47.694264' WHERE "users"."id" = 4[0m
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mRole Load (0.9ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'[0m
+  [1m[35mRole Load (0.8ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'
+WARNING: Can't mass-assign protected attributes: id
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mAlbum Exists (1.3ms)[0m  SELECT 1 AS one FROM "albums" WHERE "albums"."path" = 'my_last_test' LIMIT 1
+  [1m[36mSQL (1.7ms)[0m  [1mINSERT INTO "albums" ("address", "created_at", "description", "latitude", "longitude", "note", "path", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["address", "test"], ["created_at", Tue, 02 Sep 2014 19:40:47 UTC +00:00], ["description", "test"], ["latitude", nil], ["longitude", nil], ["note", "test"], ["path", "my_last_test"], ["title", "my_last_test"], ["updated_at", Tue, 02 Sep 2014 19:40:47 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  COMMIT
+Redirected to http://127.0.0.1:3000/albums/6-my_last_test/photos/upload
+Completed 302 Found in 30.7ms (ActiveRecord: 9.8ms)
+
+
+Started GET "/albums/6-my_last_test/photos/upload" for 127.0.0.1 at 2014-09-02 21:40:47 +0200
+Processing by PhotosController#upload as HTML
+  Parameters: {"album_id"=>"6-my_last_test"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.5ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-02 19:40:47.746800', "perishable_token" = '5k3nrpDRTEbuUOsDiP7', "updated_at" = '2014-09-02 19:40:47.749893' WHERE "users"."id" = 4[0m
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36mRole Load (0.8ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'[0m
+  [1m[35mRole Load (0.7ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'
+  [1m[36mAlbum Load (1.4ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT 1[0m  [["id", "6-my_last_test"]]
+  Rendered photos/upload.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 31.5ms (Views: 11.4ms | ActiveRecord: 6.9ms)

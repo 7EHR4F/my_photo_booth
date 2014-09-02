@@ -42,12 +42,12 @@ class PhotoCartsController < ApplicationController
   # POST /photo_carts.json
   def create
     if current_cart.photos
-    if current_cart.photos << Photo.find(params[:photo_id]) 
+      if current_cart.photos << Photo.find(params[:photo_id]) 
 
-      respond_to do |format|
-        format.html { render :nothing => true }
+        respond_to do |format|
+          format.html { render :nothing => true }
+        end
       end
-    end
     end
   end
 
@@ -60,7 +60,7 @@ class PhotoCartsController < ApplicationController
         end
       end
     end
-    end
+  end
     def remove_from_cart
       current_cart.photo_carts.where(photo_id: params[:photo_id]).delete_all
       respond_to do |format|
