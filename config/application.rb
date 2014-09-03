@@ -11,6 +11,7 @@ module Balder
 
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/
+    require "sprockets/railtie"
     config.autoload_paths += %W(#{config.root}/lib #{config.root}/app/middleware/)
 
     config.encoding = "utf-8"

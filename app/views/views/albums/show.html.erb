@@ -1,0 +1,80 @@
+<h2><%= @album.title %></h2>
+
+<div id="multipleimages">
+<table>
+	<% count = 0.0 %>
+	<% for photo in @album.photos.find(:all, :order => "Id ASC") %>
+	<% count += 1%>
+  	<% if count == 1 || ( (count-1) / 4.0 == ( (count-1) / 4.0).to_i ) %><tr><% end %>
+	<td><%= link_to image_tag( photo.file.preview.url ), [@album.collections.first, @album, photo] %></td>
+  	<% if count / 4.0 == (count / 4.0).to_i %></tr><% end %>
+	<% end %>
+</table>
+</div>
+
+<p><%= @album.description %></p>
+
+<% unless @album.photo_tags.empty? %>
+<p>Tagged with: 
+<% for tag in @album.photo_tags.map{|tag|tag.title}.sort %>
+<%= link_to tag, album_tag_photos_path(@album, tag) %>
+<% end %>
+</p>
+<% end %>
+
+<% unless @album.collections.empty? %>
+<p>Collection: 
+<% for collection in @album.collections.find(:all, :order => 'title') %>
+<%= link_to collection.title, collection_path(collection) %>
+<% end %>
+</p>
+<% end %>
+
+
+<% if has_role?("admin") %>
+<p><%= @album.address %></p>
+<% end %>
+<% if has_role?("admin") %>
+<p><%= @album.note %></p>
+<% end %>
+
+
+
+<%= content_for :action_links do %>
+<% if has_role?("admin") %>
+<% if params[:collection_id] %>
+<%= link_to collection_album_path(params[:collection_id],@album, :format => 'pdf'), class: "btn btn-info" do %>
+<%= "PDF" %>
+<% end %>
+<%= link_to edit_collection_album_path(params[:collection_id],@album), class: "btn btn-warning" do %>
+<%= "Modifier l'album" %>
+<% end %>
+<%= link_to edit_multiple_collection_album_photos_path(params[:collection_id],@album), class: "btn btn-warning" do %>
+<%= "Modifier toutes les photos" %>
+<% end %>
+<%= link_to untouched_collection_album_photos_path(params[:collection_id], @album), class: "btn btn-warning" do %>
+<%= "Modifier les photos intactes" %>
+<% end %>
+<%= link_to upload_collection_album_photos_path(params[:collection_id], @album), class: "btn btn-success" do %>
+<%= "Ajouter des photos" %>
+<% end %>
+<% else %>
+<%= link_to album_path(@album, :format => 'pdf'), class: "btn btn-info" do %>
+<%= "PDF" %>
+<% end %>
+<%= link_to edit_album_path(@album), class: "btn btn-warning" do %>
+<%= "Modifier l'album" %>
+<% end %>
+<%= link_to edit_multiple_album_photos_path(@album), class: "btn btn-warning" do %>
+<%= "Modifier toutes les photos" %>
+<% end %>
+<%= link_to untouched_album_photos_path(@album), class: "btn btn-warning" do %>
+<%= "Modifier les photos intactes" %>
+<% end %>
+<%= link_to upload_album_photos_path(@album), class: "btn btn-success" do %>
+<%= "Ajouter des photos" %>
+<% end %>
+<% end %>
+
+<% end %>
+<% end %>

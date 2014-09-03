@@ -1,0 +1,13 @@
+<h1>Modifier la collection</h1>
+ 
+<%= form_for @collection do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => "form", :object => f %>
+  <%= f.submit "Mettre à jour", class:"btn btn-success" %>
+<% end %>
+
+<%= content_for :action_links do %>
+<%= link_to("Supprimer", { :action => "destroy", :id => @collection },
+  :confirm => "Êtes-vous sûr?",
+  :method => :delete, class: "btn btn-danger") %>
+<% end %>

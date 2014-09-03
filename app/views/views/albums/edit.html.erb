@@ -1,0 +1,20 @@
+<h1>Modifier l'album</h1>
+ 
+<%= form_for @album do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => "form", :object => f %>
+  <%= f.submit "Mettre à jour", class: 'btn btn-success' %>
+<% end %>
+<%= link_to @album, class: "btn btn-default" do %>
+<%= "Retour à l'album " + @album.title %>
+<% end %>
+ 
+
+<%= content_for :action_links do %>
+<% if has_role?("admin") %>
+
+<%= link_to("Supprimer", { :action => "destroy", :id => @album, :collection_id => params[:collection_id] },
+  :confirm => "Êtes-vous sûr?",
+  :method => :delete, class: 'btn btn-danger') %>
+<% end %>
+<% end %>

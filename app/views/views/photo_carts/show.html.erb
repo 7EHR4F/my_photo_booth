@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Photo:</b>
+  <%= @photo_cart.photo_id %>
+</p>
+
+<p>
+  <b>Cart:</b>
+  <%= @photo_cart.cart_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @photo_cart.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_photo_cart_path(@photo_cart) %> |
+<%= link_to 'Back', photo_carts_path %>

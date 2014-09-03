@@ -1,0 +1,15 @@
+<%= javascript_include_tag "jquery-1.4.2" -%>
+<%= javascript_include_tag "remove_from_cart"  -%>
+<h1>Votre panier</h1>
+    <% @photos = current_cart.photo_carts %>
+    <% @photos.each do |p| %>
+      <div>
+      <%= image_tag(p.photo.file.album.url) %>
+      <%= link_to 'Supprimer', remove_from_cart_path(photo_id: p.photo.id), remote: true, class: 'delete_from_cart' %>
+      </div>
+    <% end %>
+
+<br />
+<script type="text/javascript">
+</script>
+
