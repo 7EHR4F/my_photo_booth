@@ -32,6 +32,10 @@
 	</h1>
 	<div id="account_links">
 	<% if current_user %>
+	<%= link_to main_app.carts_path, class:"btn btn-warning" do %>
+	<%= content_tag(:i, "", class:'fa fa-shopping-cart') %>
+	<%= "Votre panier" %>
+	<% end %>
 	<%= link_to '#', class:"btn btn-info" do %>
 	<%= content_tag(:i, "", class:'fa fa-user') %>
 	<%= current_user.name %>
@@ -44,9 +48,10 @@
 	</div>
 	<%= form_tag main_app.albums_path, { :method => :get, :id => :search } do -%>
 		<input type="text" name="q" class="textfield" placeholder="Album"/>
-		<input type="submit" value="Rechercher" class="button" />
+		<input type="submit" value="Rechercher" class="button btn btn-success" />
 	<% end -%>
     <hr class="seperator" />
+    <%= breadcrumbs %>
 </div>
 
 <div id="content">

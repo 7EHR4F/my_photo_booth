@@ -44,34 +44,44 @@
 <% if has_role?("admin") %>
 <% if params[:collection_id] %>
 <%= link_to collection_album_path(params[:collection_id],@album, :format => 'pdf'), class: "btn btn-info" do %>
+<%= content_tag(:i, "", class: 'fa fa-file-pdf-o') %>
 <%= "PDF" %>
 <% end %>
 <%= link_to edit_collection_album_path(params[:collection_id],@album), class: "btn btn-warning" do %>
+<%= content_tag(:i, "", class: 'fa fa-edit') %>
 <%= "Modifier l'album" %>
 <% end %>
 <%= link_to edit_multiple_collection_album_photos_path(params[:collection_id],@album), class: "btn btn-warning" do %>
+<%= content_tag(:i, "", class: 'fa fa-edit') %>
 <%= "Modifier toutes les photos" %>
 <% end %>
 <%= link_to untouched_collection_album_photos_path(params[:collection_id], @album), class: "btn btn-warning" do %>
+<%= content_tag(:i, "", class: 'fa fa-edit') %>
 <%= "Modifier les photos intactes" %>
 <% end %>
 <%= link_to upload_collection_album_photos_path(params[:collection_id], @album), class: "btn btn-success" do %>
+<%= content_tag(:i, "", class: 'fa fa-plus') %>
 <%= "Ajouter des photos" %>
 <% end %>
 <% else %>
 <%= link_to album_path(@album, :format => 'pdf'), class: "btn btn-info" do %>
+<%= content_tag(:i, "", class: 'fa fa-file-pdf-o') %>
 <%= "PDF" %>
 <% end %>
 <%= link_to edit_album_path(@album), class: "btn btn-warning" do %>
+<%= content_tag(:i, "", class: 'fa fa-edit') %>
 <%= "Modifier l'album" %>
 <% end %>
 <%= link_to edit_multiple_album_photos_path(@album), class: "btn btn-warning" do %>
+<%= content_tag(:i, "", class: 'fa fa-edit') %>
 <%= "Modifier toutes les photos" %>
 <% end %>
 <%= link_to untouched_album_photos_path(@album), class: "btn btn-warning" do %>
+<%= content_tag(:i, "", class: 'fa fa-edit') %>
 <%= "Modifier les photos intactes" %>
 <% end %>
 <%= link_to upload_album_photos_path(@album), class: "btn btn-success" do %>
+<%= content_tag(:i, "", class: 'fa fa-plus') %>
 <%= "Ajouter des photos" %>
 <% end %>
 <% end %>
