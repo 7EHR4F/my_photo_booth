@@ -1,31 +1,7 @@
-<p>
-  <%= link_to 'Create Event', 'javascript:void()', id: 'new_event' %>
-</p>
-<div>
-  <div class='calendar'></div>
-</div>
-<div id="event_desc_dialog" class="dialog" style="display:none;"></div>
-<div id="create_event_dialog" class="dialog" style ="display:none;">
-  <%= render 'form' %>
-</div>
-<%= javascript_include_tag 'jquery-1.4.2.js', 'rails', 'balder' %>
-<%= javascript_include_tag 'fullcalendar.js' %>
-<%= javascript_include_tag 'gcal.js' %>
-<%= yield :javascript %>
+// Place all the behaviors and hooks related to the matching controller here.
+// All this logic will automatically be available in application.js.
 
-<script>
-  $(document).ready(function(){
-    $('.calendar').fullCalendar(full_calendar_options);
-    // page is now ready, initialize the calendar...
-    $('#new_event').click(function(event) {
-      FullcalendarEngine.Form.display()
-      event.preventDefault();
-    });
-  });
-</script>
-
-<script>
-full_calendar_options = ""
+full_calendar_options = <%= FullcalendarEngine::Configuration.to_json.html_safe %>
 app_path              = "<%= FullcalendarEngine::Configuration["mount_path"] %>"
 
 $.extend(full_calendar_options, {
@@ -219,5 +195,4 @@ $(document).ready(function(){
       alert(xhr.responseText);
     }
   })
-}
-</script>
+});
