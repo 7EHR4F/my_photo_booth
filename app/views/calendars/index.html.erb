@@ -1,1 +1,9 @@
-<%= calendar(:year => @year, :month => @month, :first_day_of_week => 1) %>
+<%= month_calendar events: @events do |date, events| %>
+  <%= date %>
+
+  <% events.each do |event| %>
+    <div>
+      <%= event.starts_at.strftime('%H:%M') + ' ' + event.name %>
+    </div>
+  <% end %>
+<% end %>

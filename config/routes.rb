@@ -1,4 +1,7 @@
 Balder::Application.routes.draw do
+  resources :events
+
+
   resources :calendars
 
 
@@ -6,7 +9,7 @@ Balder::Application.routes.draw do
 
   resources :carts
 
-  mount FullcalendarEngine::Engine => "/fullcalendar_engine"
+ # mount FullcalendarEngine::Engine => "/fullcalendar_engine"
 
   resources :payments
   get "add_to_cart" => 'photo_carts#add_to_cart', as: 'add_to_cart'

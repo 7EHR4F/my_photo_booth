@@ -3,7 +3,7 @@ class CalendarsController < ApplicationController
   # GET /calendars.json
   def index
     @calendars = Calendar.all
-
+    @events = Event.all
     @year = Time.now.year
     @month = Time.now.month
     respond_to do |format|

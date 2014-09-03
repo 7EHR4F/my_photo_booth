@@ -3,10 +3,9 @@
 
 full_calendar_options = 'undefined'
 app_path              = "/fullcalendar_engine"
-
 $.extend(full_calendar_options, {
   loading: function(bool){
-    if (bool) 
+    if (bool)
       $('#loading').show();
     else
       $('#loading').hide();
@@ -21,10 +20,10 @@ $.extend(full_calendar_options, {
     FullcalendarEngine.Events.showEventDetails(event);
   },
   select: function( startDate, endDate, allDay, jsEvent, view ) {
-    FullcalendarEngine.Form.display({ 
-      starttime: new Date(startDate.getTime()), 
-      endtime:   new Date(endDate.getTime()), 
-      allDay:    allDay 
+    FullcalendarEngine.Form.display({
+      starttime: new Date(startDate.getTime()),
+      endtime:   new Date(endDate.getTime()),
+      allDay:    allDay
     })
   }
 })
