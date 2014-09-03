@@ -1,8 +1,3 @@
-/* @override 
-	http://localhost:3000/stylesheets/application.css
-	http://photos.inspired.no/stylesheets/application.css?1316927557
-*/
-
 /* @group Reset */
 
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {margin:0;padding:0;border:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline;}
@@ -33,7 +28,7 @@ p {margin:0 0 1.5em;}
 p img.left {float:left;margin:1.5em 1.5em 1.5em 0;padding:0;}
 p img.right {float:right;margin:1.5em 0 1.5em 1.5em;}
 a:focus, a:hover {color:#000;}
-a {color:#009;text-decoration:underline;}
+a {color:#009;text-decoration:none;}
 blockquote {margin:1.5em;color:#666;font-style:italic;}
 strong {font-weight:bold;}
 em, dfn {font-style:italic;}
@@ -73,14 +68,15 @@ caption {background:#eee;}
 .clear {
 	clear:  both;
 }
-
+label { font-size: 16px; }
 
 
 /* @end */
 
 #container {
-	width: 950px;
+	width: 90%;
 	margin: 0 auto;
+	float: right
 }
 
 div#header h1 {
@@ -98,17 +94,18 @@ div#header h1 a, div#header h1 a:visited, div#header h1 a:active, div#header h1 
 }
 
 div#header {
-	padding: 10px 0;
+	padding: 1em;
 }
 div#content {
 	clear: both;
+	padding: 1em;
 }
 div#footer {
 	clear: both;
 }
 form#search {
-	margin: 5px 0;
-	padding: 5px 10px;
+	margin: 0.2em;
+	margin-bottom: 2em;
 	float: right;
 }
 form#search input {
@@ -216,7 +213,7 @@ DIV#breadcrumb {
     float: left;
 }
 
-DIV#action_links {
+DIV#account_links {
     float: right;
     clear: right;
 }
@@ -245,4 +242,104 @@ DIV#collection_albums IMG.delete {
 	cursor:  pointer;
 	right:  8px;
 	top:  8px;
+}
+
+#navbar-left {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 10%;
+  text-align: center;
+  z-index: 50;
+  border-right: 1px solid #000;
+}
+#navbar-left .nav {
+  width: 100%;
+  margin: 0;
+}
+#navbar-left li {
+  list-style: none;
+}
+#navbar-left .nav li a {
+  font-weight: normal;
+  text-decoration: none;
+  display: block;
+  float: none;
+  font-family: Raleway-Medium;
+  font-size: 13px;
+  padding: 25px 20px;
+  text-transform: uppercase;
+  color: #72797B;
+}
+#navbar-left li a:hover {
+  background-color: black;
+  color: white;
+}
+#navbar-left li.current_page_item {
+  background: #CB1515;
+}
+#navbar-left li.current_page_item a {
+  color: white;
+}
+
+.btn {
+    display: inline-block;
+    margin: 0.2em;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857;
+    border-radius: 4px;
+    -moz-user-select: none;
+    color: #333;
+}
+.btn-warning {
+    background-color: #F0AD4E;
+    border-color: #EEA236;
+}
+.btn-warning:hover {
+    background-color: #EC971F;
+    border-color: #D58512;
+    color: white;
+}
+.btn-default {
+  background-color: #FFF;
+  border-color: #CCC;
+}
+.btn-default:hover {
+  color: #CB1515;
+}
+.btn-success {
+    background-color: #5CB85C;
+    border-color: #4CAE4C;
+}
+.btn-success:hover {
+    color: #FFF;
+    background-color: #449D44;
+    border-color: #398439;
+}
+.btn-danger {
+  background-color: #D9534F;
+  border-color: #D43F3A;
+}
+.btn-danger:hover {
+ color: white;
+ background-color: #C9302C;
+ border-color: #AC2925;
+}
+.btn-info {
+background-color: #31B0D5;
+border-color: #269ABC;
+}
+.btn-info:hover {
+color: white;
+background-color: #31B0D5;
+border-color: #269ABC;
 }

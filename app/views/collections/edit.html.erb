@@ -1,13 +1,13 @@
-<h1>Edit collection</h1>
+<h1>Modifier la collection</h1>
  
 <%= form_for @collection do |f| %>
   <%= f.error_messages %>
   <%= render :partial => "form", :object => f %>
-  <%= f.submit "Update" %>
+  <%= f.submit "Mettre à jour", class:"btn btn-success" %>
 <% end %>
 
 <%= content_for :action_links do %>
-<%= link_to("Delete this collection", { :action => "destroy", :id => @collection },
-  :confirm => "Are you sure you want to delete this collection?",
-  :method => :delete) %>
+<%= link_to("Supprimer", { :action => "destroy", :id => @collection },
+  :confirm => "Êtes-vous sûr?",
+  :method => :delete, class: "btn btn-danger") %>
 <% end %>

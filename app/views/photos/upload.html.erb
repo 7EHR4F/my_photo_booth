@@ -81,6 +81,11 @@ $(document).ready(function() {
 <br>
 <div id="thumbs"></div>
 </form>
-
-<br><%= link_to "Edit uploaded photos", untouched_album_photos_path( @album ) %>
-<br><%= link_to "Back to #{@album.title}", @album %>
+<div class="actions">
+<%= link_to untouched_album_photos_path( @album ), class: "btn btn-warning" do %>
+<%= "Modifier les photos envoyés" %>
+<% end %>
+<%= link_to @album, class: "btn btn-default" do %>
+<%= "Retour à l'album " + @album.title %>
+<% end %>
+</div>

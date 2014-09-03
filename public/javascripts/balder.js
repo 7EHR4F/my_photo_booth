@@ -1,4 +1,19 @@
 jQuery(function($) {
+$(document).ready(function() {
+    var sourceSwap = function () {
+    var $this = $(this);
+    var newSource = $this.data('alt-src');
+    $this.data('alt-src', $this.attr('src'));
+    $this.attr('src', newSource);
+    }
+
+    var blink = function() {
+    $('#container').fadeOut(30).fadeIn(30);
+    }
+
+    $('img.swap').hover(sourceSwap);
+    $('.blink').hover(blink, function() {});
+});
   
     if ( $('.tag_list').length ) {
         $('.tag_list').tagSuggest({

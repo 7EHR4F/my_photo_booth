@@ -46,3 +46,8 @@ gem "mini_magick"
 gem 'activemerchant'
 gem 'jquery-rails'
 gem "mini_exiftool_vendored"
+
+#gem 'font-awesome-rails'
+#gem 'bootstrap-sass', '~> 3.2.0'
+#gem 'sass-rails', '>= 3.2'
+#gem 'autoprefixer-rails'

@@ -9,7 +9,9 @@
 <% end%>
 </p>
 <% end%>
-  <p><%= f.submit "Submit" %></p>
+  <p><%= f.submit "Enregistrer", class: 'btn btn-success'  %></p>
 <% end %>
 
-<br /><%= link_to "Back to #{@album.title}", @album %>
+<%= link_to @album, class: "btn btn-default" do %>
+<%= "Retour à l'album " + @album.title %>
+<% end %>

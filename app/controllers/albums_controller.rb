@@ -56,7 +56,7 @@ class AlbumsController < ApplicationController
     @album = Album.new(params[:album])
 
     if @album.save
-      flash[:notice] = "Album created! Now add some nice photos."
+      flash[:notice] = "Album créé. Maintenant vous pouvez ajouter vos photos."
      # if params[:collection_id]
       #  @album.collections << Collection.find( params[:collection_id] )
       #  redirect_to upload_collection_album_photos_path(params[:collection_id], @album )

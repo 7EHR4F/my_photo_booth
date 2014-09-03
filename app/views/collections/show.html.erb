@@ -15,8 +15,14 @@
 
 <%= content_for :action_links do %>
 <% if has_role?("admin") %>
-<%= link_to "PDF", collection_path(@collection, :format => 'pdf') %> |&nbsp;
-<%= link_to "Edit collection", edit_collection_path(@collection) %> | 
-<%= link_to "New album", new_collection_album_path(@collection) %>
+<%= link_to collection_path(@collection, :format => 'pdf'), class: "btn btn-info" do %>
+<%= "PDF" %>
+<% end %>
+<%= link_to edit_collection_path(@collection), class: "btn btn-warning" do %>
+<%= "Modifier la collection" %>
+<% end %>
+<%= link_to new_collection_album_path(@collection), class:"btn btn-success" do %>
+<%= "Ajouter un album" %>
+<% end %>
 <% end %>
 <% end %>

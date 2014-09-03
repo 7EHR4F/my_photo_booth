@@ -1,8 +1,7 @@
-<h1>New Album</h1>
+<h1>Nouvel album</h1>
  
 <%= form_for @album do |f| %>
   <%= f.error_messages %>
   <%= render :partial => "form", :object => f %>
-  <%= f.submit "Create" %>
+  <%= f.submit "Créer", class: "btn btn-success" %>
 <% end %>
- 

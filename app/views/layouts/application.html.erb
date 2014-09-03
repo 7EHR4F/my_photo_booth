@@ -10,36 +10,53 @@
 	<%= csrf_meta_tag %>
 </head>
 <body>
-<div id="container">
 
+<div id="navbar-left">
+<a href="http://www.domaine-temporaire-test.fr/" class="brand blink"><img src="http://www.domaine-temporaire-test.fr/wp-content/uploads/2014/08/logo_michel_nunes.png" data-alt-src="http://www.domaine-temporaire-test.fr/wp-content/uploads/2014/08/logo_michel_nunes_bw.png" alt="Michel Nunes" class="logo-img swap" height="60px" ></a>
+<ul class="nav">
+<li><a href="http://www.domaine-temporaire-test.fr/" title="Accueil">Accueil</a></li>
+<li class="current_page_item"><a href="#">Boutique</a></li>
+<li><a href="http://www.domaine-temporaire-test.fr/gallery/">Galerie</a></li>
+<li><a href="http://www.domaine-temporaire-test.fr/livre-dor/">Livre d’or</a></li>
+<li><a href="http://www.domaine-temporaire-test.fr/prendre-rendez-vous/">Prendre rendez-vous</a></li>
+<li><a href="http://www.domaine-temporaire-test.fr/partenaires/">Partenaires</a></li>
+<li><a href="http://www.domaine-temporaire-test.fr/contact/">Contact</a></li>
+</ul>
+</div>
+
+<div id="container">
 <div id="header">
-	<div id="action_links">
-	<%= yield :action_links %>
+	<h1>
+		<%= link_to(if ENV['LOGO'] then image_tag(ENV['LOGO']) else (ENV['TITLE'] || "Boutique") end, root_path) %>
+	</h1>
+	<div id="account_links">
 	<% if current_user %>
-	Logged in as <%= link_to(current_user.name, 'account') %>
-	<%= link_to 'Logout', logout_path %>
+	<%= link_to '#', class:"btn btn-info" do %>
+	<%= current_user.name %>
+	<% end %>
+	<%= link_to logout_path, class: "btn btn-danger" do %>
+	<%= content_tag(:i, "", class: "fa fa-sign-out") %>
+	<%= "Déconnexion" %>
+	<% end %>
 	<% end %>
 	</div>
-	<h1>
-		<%= link_to(if ENV['LOGO'] then image_tag(ENV['LOGO']) else (ENV['TITLE'] || "Photos") end, root_path) %>
-	</h1>
 	<%= form_tag albums_path, { :method => :get, :id => :search } do -%>
-		<input type="text" name="q" class="textfield"/>
-		<input type="submit" value="Search" class="button" />
+		<input type="text" name="q" class="textfield" placeholder="Album"/>
+		<input type="submit" value="Rechercher" class="button" />
 	<% end -%>
     <hr class="seperator" />
 	<%= breadcrumbs %>
 </div>
 
 <div id="content">
+<div id="action_links">
+<%= yield :action_links %>
+</div>
 	<p id="notice"><%= flash[:notice] %></p>
 	<%= yield %>
 </div>
 
 <div id="footer">
-  
-  <hr class="seperator" />
-  &copy; <a href="http://balderapp.com">Balder - open source photo gallery</a>.
 </div>
 </div>
 
