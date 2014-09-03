@@ -11552,6 +11552,7 @@ Processing by PhotosController#upload as HTML
   Rendered photos/upload.html.erb within layouts/application (4.0ms)
 Completed 200 OK in 31.5ms (Views: 11.4ms | ActiveRecord: 6.9ms)
 Connecting to database specified by database.yml
+<<<<<<< HEAD
 Connecting to database specified by database.yml
 
 
@@ -11793,6 +11794,674 @@ Completed 200 OK in 84.0ms (Views: 76.3ms | ActiveRecord: 5.0ms)
 Started GET "/register" for 127.0.0.1 at 2014-09-02 17:48:41 -0700
 
 ActionController::RoutingError (No route matches [GET] "/register"):
+=======
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-03 10:34:55 +0200
+Processing by CollectionsController#index as HTML
+  [1m[36mUser Load (2.7ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mCollection Load (1.7ms)[0m  SELECT "collections".* FROM "collections" ORDER BY title
+  [1m[36m (3.2ms)[0m  [1mSELECT COUNT(*) FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2[0m
+  [1m[35mAlbum Load (1.8ms)[0m  SELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 LIMIT 1
+  [1m[36m (1.7ms)[0m  [1mSELECT COUNT(*) FROM "photos" WHERE "photos"."album_id" = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 LIMIT 1
+  [1m[36mPhoto Load (0.9ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 2 LIMIT 1[0m
+  [1m[35mAlbum Load (1.5ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  Rendered collections/index.html.erb within layouts/application (371.0ms)
+Completed 200 OK in 623.4ms (Views: 427.7ms | ActiveRecord: 64.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2014-09-03 10:35:03 +0200
+Processing by Admin::UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" [0m
+Redirected to http://127.0.0.1:3000/login
+Filter chain halted as :require_role_admin rendered or redirected
+Completed 302 Found in 5.5ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2014-09-03 10:35:03 +0200
+Processing by UserSessionsController#new as HTML
+  [1m[35mUser Load (1.7ms)[0m  SELECT "users".* FROM "users" 
+  Rendered user_sessions/new.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 26.1ms (Views: 19.4ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/authenticate" for 127.0.0.1 at 2014-09-03 10:35:15 +0200
+Processing by UserSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"c5flVLc4uTTYnH0cV/dxjIuhtsauHe4CQTLJiro2q6c=", "user_session"=>{"email"=>"tehrafff+1@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mUser Load (1.9ms)[0m  SELECT "users".* FROM "users" WHERE LOWER("users"."email") = LOWER('tehrafff+1@gmail.com') LIMIT 1
+  [1m[36m (0.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.9ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (1.4ms)[0m  [1mUPDATE "users" SET "login_count" = 3, "last_login_at" = '2014-09-02 19:21:06.187446', "current_login_at" = '2014-09-03 08:35:15.310368', "last_request_at" = '2014-09-03 08:35:15.311151', "perishable_token" = '5z0wOsxT2JC1REO8QVP', "updated_at" = '2014-09-03 08:35:15.332134' WHERE "users"."id" = 4[0m
+  [1m[35m (0.8ms)[0m  COMMIT
+Redirected to http://127.0.0.1:3000/users/sign_in
+Completed 302 Found in 52.4ms (ActiveRecord: 11.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2014-09-03 10:35:15 +0200
+Processing by Admin::UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.8ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (1.2ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-03 08:35:15.369215', "perishable_token" = 'YK6RsfNohZ1xdxf25f7T', "updated_at" = '2014-09-03 08:35:15.374122' WHERE "users"."id" = 4[0m
+  [1m[35m (3.2ms)[0m  COMMIT
+  [1m[36mRole Load (2.2ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'[0m
+  [1m[35mRole Load (0.8ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "sign_in"]]
+Completed 404 Not Found in 87.2ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with id=sign_in):
+  app/controllers/admin/users_controller.rb:8:in `show'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.2ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.4ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.8ms)
+
+
+Started POST "/authenticate" for 127.0.0.1 at 2014-09-03 10:35:34 +0200
+Processing by UserSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"c5flVLc4uTTYnH0cV/dxjIuhtsauHe4CQTLJiro2q6c=", "user_session"=>{"email"=>"tehrafff1@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (0.8ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-03 08:35:34.469521', "perishable_token" = 'sJnxGdCDzLC3Q7DHs6Mx', "updated_at" = '2014-09-03 08:35:34.472673' WHERE "users"."id" = 4
+  [1m[36m (1.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://127.0.0.1:3000/account
+Filter chain halted as :require_no_user rendered or redirected
+Completed 302 Found in 12.9ms (ActiveRecord: 5.0ms)
+
+
+Started GET "/account" for 127.0.0.1 at 2014-09-03 10:35:34 +0200
+Processing by UsersController#show as HTML
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.9ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-03 08:35:34.502030', "perishable_token" = 'XqS4JaRg7UtrzyBBbrh', "updated_at" = '2014-09-03 08:35:34.505386' WHERE "users"."id" = 4[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+  Rendered users/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 24.1ms (Views: 12.4ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-03 10:35:40 +0200
+Processing by CollectionsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mCollection Load (0.7ms)[0m  SELECT "collections".* FROM "collections" ORDER BY title
+  [1m[36m (1.3ms)[0m  [1mSELECT COUNT(*) FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2[0m
+  [1m[35mAlbum Load (1.1ms)[0m  SELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 LIMIT 1
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "photos" WHERE "photos"."album_id" = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 LIMIT 1
+  [1m[36mPhoto Load (1.0ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 2 LIMIT 1[0m
+  [1m[35mAlbum Load (0.9ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (0.9ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-03 08:35:40.703939', "perishable_token" = '8QWPomTKp96aHolnjAG', "updated_at" = '2014-09-03 08:35:40.707623' WHERE "users"."id" = 4
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (1.1ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'
+  [1m[36mRole Load (0.8ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'[0m
+  Rendered collections/index.html.erb within layouts/application (40.6ms)
+Completed 200 OK in 52.2ms (Views: 35.0ms | ActiveRecord: 14.3ms)
+
+
+Started GET "/collections/new" for 127.0.0.1 at 2014-09-03 10:35:44 +0200
+Processing by CollectionsController#new as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (0.8ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-03 08:35:44.247235', "perishable_token" = 'febTKtPnAmHs2ZFZSsAb', "updated_at" = '2014-09-03 08:35:44.249964' WHERE "users"."id" = 4
+  [1m[36m (2.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (1.1ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'
+  [1m[36mRole Load (0.8ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'[0m
+  Rendered collections/_form.html.erb (3.1ms)
+  Rendered collections/new.html.erb within layouts/application (84.2ms)
+Completed 200 OK in 112.7ms (Views: 91.8ms | ActiveRecord: 8.5ms)
+
+
+Started GET "/collections/new" for 127.0.0.1 at 2014-09-03 10:35:49 +0200
+Processing by CollectionsController#new as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (0.6ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-03 08:35:49.980061', "perishable_token" = 'gTnNGWBF4Z5r03xlL2w8', "updated_at" = '2014-09-03 08:35:49.982398' WHERE "users"."id" = 4
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (0.9ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'
+  [1m[36mRole Load (0.8ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'[0m
+  Rendered collections/_form.html.erb (1.5ms)
+  Rendered collections/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 27.7ms (Views: 10.8ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/carts/" for 127.0.0.1 at 2014-09-03 10:36:00 +0200
+Processing by CartsController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (0.5ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-03 08:36:00.822516', "perishable_token" = '0baNZeDoSmoa3zbI142N', "updated_at" = '2014-09-03 08:36:00.824711' WHERE "users"."id" = 4
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mCart Load (1.5ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."user_id" = 4 ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = 4 ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mPhotoCart Load (1.0ms)[0m  SELECT "photo_carts".* FROM "photo_carts" WHERE "photo_carts"."cart_id" = 5
+  Rendered carts/index.html.erb within layouts/application (18.9ms)
+Completed 200 OK in 55.2ms (Views: 19.7ms | ActiveRecord: 11.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-03 10:36:05 +0200
+Processing by CollectionsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mCollection Load (0.7ms)[0m  SELECT "collections".* FROM "collections" ORDER BY title
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2[0m
+  [1m[35mAlbum Load (0.6ms)[0m  SELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "photos" WHERE "photos"."album_id" = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 LIMIT 1
+  [1m[36mPhoto Load (1.0ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 2 LIMIT 1[0m
+  [1m[35mAlbum Load (0.6ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (0.7ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-03 08:36:05.184239', "perishable_token" = 'x1kthncF0Wl0CgzPBWU', "updated_at" = '2014-09-03 08:36:05.187307' WHERE "users"."id" = 4
+  [1m[36m (2.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (1.0ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'
+  [1m[36mRole Load (0.9ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'[0m
+  Rendered collections/index.html.erb within layouts/application (32.9ms)
+Completed 200 OK in 42.4ms (Views: 28.0ms | ActiveRecord: 12.4ms)
+
+
+Started GET "/collections/2-test" for 127.0.0.1 at 2014-09-03 10:36:06 +0200
+Processing by CollectionsController#show as HTML
+  Parameters: {"id"=>"2-test"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mCollection Load (2.8ms)[0m  [1mSELECT "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT 1[0m  [["id", "2-test"]]
+  [1m[35mAlbum Load (1.1ms)[0m  SELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 ORDER BY title
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM "photos" WHERE "photos"."album_id" = 2[0m
+  [1m[35mPhoto Load (0.8ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 2 LIMIT 1
+  [1m[36mAlbum Load (1.0ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35mCollection Load (1.7ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  Rendered photos/_thumb.html.erb (20.5ms)
+  [1m[36mPhoto Load (1.5ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 2 LIMIT 5 OFFSET 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1[0m
+  Rendered photos/_thumb.html.erb (26.6ms)
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.7ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-03 08:36:06.653085', "perishable_token" = '9ts7vEdcyPWjzgg7VU', "updated_at" = '2014-09-03 08:36:06.655598' WHERE "users"."id" = 4[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36mRole Load (1.0ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'[0m
+  [1m[35mRole Load (0.9ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'
+  Rendered collections/show.html.erb within layouts/application (77.9ms)
+Completed 200 OK in 91.7ms (Views: 71.5ms | ActiveRecord: 16.1ms)
+
+
+Started GET "/collections/2-test/albums/2-test/photos/8-caraibes" for 127.0.0.1 at 2014-09-03 10:36:08 +0200
+Processing by PhotosController#show as HTML
+  Parameters: {"collection_id"=>"2-test", "album_id"=>"2-test", "id"=>"8-caraibes"}
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mPhoto Load (1.8ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."id" = $1 LIMIT 1  [["id", "8-caraibes"]]
+  [1m[36mAlbum Load (0.8ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35m (1.5ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "photos" WHERE (id < 8 AND album_Id = 2 ) LIMIT 1) subquery_for_count 
+  [1m[36mPhoto Load (0.9ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE (id < 8 AND album_Id = 2 ) ORDER BY id DESC LIMIT 1[0m
+  [1m[35m (0.8ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "photos" WHERE (id > 8 AND album_Id = 2 ) LIMIT 1) subquery_for_count 
+  [1m[36mCollection Load (1.3ms)[0m  [1mSELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  [1m[36mTag Load (1.7ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "photo_tags" ON "tags"."id" = "photo_tags"."tag_id" WHERE "photo_tags"."photo_id" = 8[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.8ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.8ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-03 08:36:08.359034', "perishable_token" = 'k2FpzFYvfBkAGQpvvm', "updated_at" = '2014-09-03 08:36:08.362997' WHERE "users"."id" = 4[0m
+  [1m[35m (2.6ms)[0m  COMMIT
+  [1m[36mRole Load (1.3ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'[0m
+  [1m[35mRole Load (0.9ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'
+  Rendered photos/show.html.erb within layouts/application (126.4ms)
+Completed 200 OK in 148.5ms (Views: 116.8ms | ActiveRecord: 24.7ms)
+
+
+Started POST "/photo_carts?photo_id=8" for 127.0.0.1 at 2014-09-03 10:36:10 +0200
+Processing by PhotoCartsController#create as JS
+  Parameters: {"photo_id"=>"8"}
+WARNING: Can't verify CSRF token authenticity
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.9ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-03 08:36:10.158387', "perishable_token" = 'rhwPuzvWrW4zmVS6xqE', "updated_at" = '2014-09-03 08:36:10.162357' WHERE "users"."id" = 4[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36mCart Load (0.9ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = 4 ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."user_id" = 4 ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mPhoto Load (0.7ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."id" = $1 LIMIT 1[0m  [["id", "8"]]
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (2.6ms)[0m  [1mINSERT INTO "photo_carts" ("cart_id", "created_at", "photo_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["cart_id", 5], ["created_at", Wed, 03 Sep 2014 08:36:10 UTC +00:00], ["photo_id", 8], ["updated_at", Wed, 03 Sep 2014 08:36:10 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  Rendered text template (0.0ms)
+Completed 200 OK in 47.5ms (Views: 2.1ms | ActiveRecord: 10.5ms)
+
+
+Started GET "/collections/2-test/albums/2-test/photos/7-macs-suck-think-gamer-by-biohazard40077" for 127.0.0.1 at 2014-09-03 10:36:11 +0200
+Processing by PhotosController#show as HTML
+  Parameters: {"collection_id"=>"2-test", "album_id"=>"2-test", "id"=>"7-macs-suck-think-gamer-by-biohazard40077"}
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mPhoto Load (0.7ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."id" = $1 LIMIT 1  [["id", "7-macs-suck-think-gamer-by-biohazard40077"]]
+  [1m[36mAlbum Load (1.3ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35m (1.1ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "photos" WHERE (id < 7 AND album_Id = 2 ) LIMIT 1) subquery_for_count 
+  [1m[36mPhoto Load (1.0ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE (id < 7 AND album_Id = 2 ) ORDER BY id DESC LIMIT 1[0m
+  [1m[35m (1.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "photos" WHERE (id > 7 AND album_Id = 2 ) LIMIT 1) subquery_for_count 
+  [1m[36mPhoto Load (1.1ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE (id > 7 AND album_Id = 2 ) ORDER BY id ASC LIMIT 1[0m
+  [1m[35mCollection Load (1.6ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  [1m[36mTag Load (1.1ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "photo_tags" ON "tags"."id" = "photo_tags"."tag_id" WHERE "photo_tags"."photo_id" = 7[0m
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.7ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-03 08:36:11.795350', "perishable_token" = 'DZM9WDPGCcgsgNJclE', "updated_at" = '2014-09-03 08:36:11.799053' WHERE "users"."id" = 4[0m
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36mRole Load (1.1ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'[0m
+  [1m[35mRole Load (1.3ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'
+  Rendered photos/show.html.erb within layouts/application (43.7ms)
+Completed 200 OK in 76.9ms (Views: 46.3ms | ActiveRecord: 16.9ms)
+
+
+Started POST "/photo_carts?photo_id=7" for 127.0.0.1 at 2014-09-03 10:36:14 +0200
+Processing by PhotoCartsController#create as JS
+  Parameters: {"photo_id"=>"7"}
+WARNING: Can't verify CSRF token authenticity
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.8ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-03 08:36:14.865441', "perishable_token" = 'SkkGAuy1HJqlrcuRcJP', "updated_at" = '2014-09-03 08:36:14.867916' WHERE "users"."id" = 4[0m
+  [1m[35m (1.9ms)[0m  COMMIT
+  [1m[36mCart Load (0.8ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = 4 ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."user_id" = 4 ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mPhoto Load (0.7ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."id" = $1 LIMIT 1[0m  [["id", "7"]]
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "photo_carts" ("cart_id", "created_at", "photo_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["cart_id", 5], ["created_at", Wed, 03 Sep 2014 08:36:14 UTC +00:00], ["photo_id", 7], ["updated_at", Wed, 03 Sep 2014 08:36:14 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  Rendered text template (0.0ms)
+Completed 200 OK in 23.6ms (Views: 0.7ms | ActiveRecord: 9.3ms)
+
+
+Started GET "/collections/2-test/albums/2-test/photos/6-pirate-apple-by-lukeroberts" for 127.0.0.1 at 2014-09-03 10:36:16 +0200
+Processing by PhotosController#show as HTML
+  Parameters: {"collection_id"=>"2-test", "album_id"=>"2-test", "id"=>"6-pirate-apple-by-lukeroberts"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mPhoto Load (0.6ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."id" = $1 LIMIT 1  [["id", "6-pirate-apple-by-lukeroberts"]]
+  [1m[36mAlbum Load (0.8ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35m (0.8ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "photos" WHERE (id < 6 AND album_Id = 2 ) LIMIT 1) subquery_for_count 
+  [1m[36mPhoto Load (0.9ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE (id < 6 AND album_Id = 2 ) ORDER BY id DESC LIMIT 1[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "photos" WHERE (id > 6 AND album_Id = 2 ) LIMIT 1) subquery_for_count 
+  [1m[36mPhoto Load (0.8ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE (id > 6 AND album_Id = 2 ) ORDER BY id ASC LIMIT 1[0m
+  [1m[35mCollection Load (1.7ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  [1m[36mTag Load (1.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "photo_tags" ON "tags"."id" = "photo_tags"."tag_id" WHERE "photo_tags"."photo_id" = 6[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.8ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.8ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-03 08:36:16.750878', "perishable_token" = '9DDO76JMSSHuh89lMkU', "updated_at" = '2014-09-03 08:36:16.754392' WHERE "users"."id" = 4[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36mRole Load (1.1ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'[0m
+  [1m[35mRole Load (0.9ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'
+  Rendered photos/show.html.erb within layouts/application (36.3ms)
+Completed 200 OK in 56.8ms (Views: 34.5ms | ActiveRecord: 14.2ms)
+
+
+Started POST "/photo_carts?photo_id=6" for 127.0.0.1 at 2014-09-03 10:36:19 +0200
+Processing by PhotoCartsController#create as JS
+  Parameters: {"photo_id"=>"6"}
+WARNING: Can't verify CSRF token authenticity
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.7ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-03 08:36:19.657078', "perishable_token" = 'tmoZ5I9htpQiXO2FSjDD', "updated_at" = '2014-09-03 08:36:19.660118' WHERE "users"."id" = 4[0m
+  [1m[35m (2.3ms)[0m  COMMIT
+  [1m[36mCart Load (0.8ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = 4 ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."user_id" = 4 ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mPhoto Load (0.7ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."id" = $1 LIMIT 1[0m  [["id", "6"]]
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "photo_carts" ("cart_id", "created_at", "photo_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["cart_id", 5], ["created_at", Wed, 03 Sep 2014 08:36:19 UTC +00:00], ["photo_id", 6], ["updated_at", Wed, 03 Sep 2014 08:36:19 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  Rendered text template (0.0ms)
+Completed 200 OK in 25.2ms (Views: 0.6ms | ActiveRecord: 9.2ms)
+
+
+Started GET "/collections/2-test/albums/2-test/photos/5-macs-suck-think-gamer-by-biohazard40077" for 127.0.0.1 at 2014-09-03 10:36:21 +0200
+Processing by PhotosController#show as HTML
+  Parameters: {"collection_id"=>"2-test", "album_id"=>"2-test", "id"=>"5-macs-suck-think-gamer-by-biohazard40077"}
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mPhoto Load (0.7ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."id" = $1 LIMIT 1  [["id", "5-macs-suck-think-gamer-by-biohazard40077"]]
+  [1m[36mAlbum Load (0.9ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35m (0.8ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "photos" WHERE (id < 5 AND album_Id = 2 ) LIMIT 1) subquery_for_count 
+  [1m[36mPhoto Load (0.5ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE (id < 5 AND album_Id = 2 ) ORDER BY id DESC LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "photos" WHERE (id > 5 AND album_Id = 2 ) LIMIT 1) subquery_for_count 
+  [1m[36mPhoto Load (0.6ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE (id > 5 AND album_Id = 2 ) ORDER BY id ASC LIMIT 1[0m
+  [1m[35mCollection Load (0.8ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  [1m[36mTag Load (1.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "photo_tags" ON "tags"."id" = "photo_tags"."tag_id" WHERE "photo_tags"."photo_id" = 5[0m
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.8ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-03 08:36:21.499974', "perishable_token" = 'MjNoydBBFVKRn9A2reNS', "updated_at" = '2014-09-03 08:36:21.502173' WHERE "users"."id" = 4[0m
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36mRole Load (1.0ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'[0m
+  [1m[35mRole Load (0.7ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'
+  Rendered photos/show.html.erb within layouts/application (29.0ms)
+Completed 200 OK in 47.1ms (Views: 26.7ms | ActiveRecord: 12.5ms)
+
+
+Started POST "/photo_carts?photo_id=5" for 127.0.0.1 at 2014-09-03 10:36:23 +0200
+Processing by PhotoCartsController#create as JS
+  Parameters: {"photo_id"=>"5"}
+WARNING: Can't verify CSRF token authenticity
+  [1m[36mUser Load (2.6ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.9ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.9ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-03 08:36:23.885761', "perishable_token" = 'mhhaKEmntFkNgm4h4PxW', "updated_at" = '2014-09-03 08:36:23.891863' WHERE "users"."id" = 4[0m
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36mCart Load (0.9ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = 4 ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."user_id" = 4 ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mPhoto Load (0.7ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."id" = $1 LIMIT 1[0m  [["id", "5"]]
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "photo_carts" ("cart_id", "created_at", "photo_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["cart_id", 5], ["created_at", Wed, 03 Sep 2014 08:36:23 UTC +00:00], ["photo_id", 5], ["updated_at", Wed, 03 Sep 2014 08:36:23 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  Rendered text template (0.0ms)
+Completed 200 OK in 28.8ms (Views: 0.7ms | ActiveRecord: 11.9ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (2.5ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateAlbum (20090520163842)
+Migrating to CreatePhotos (20090520165238)
+Migrating to AddPathToAlbumAndPhoto (20090520230047)
+Migrating to CreateUsers (20090522131931)
+Migrating to CreateTags (20090522190515)
+Migrating to CreatePhotoTags (20090522190622)
+Migrating to AddLocationToAlbum (20090528143605)
+Migrating to AddNameToUser (20090528152114)
+Migrating to AddNoteToAlbum (20090529155414)
+Migrating to AddLocationToPhoto (20090602120344)
+Migrating to CreateCollections (20090602131321)
+Migrating to CreateCollectionAlbums (20090602131547)
+Migrating to CreatePermissions (20090604202928)
+Migrating to CreateRoleMemberships (20090604202929)
+Migrating to CreateRoles (20090604202930)
+Migrating to AddIndexes (20091011222125)
+Migrating to AddFileToPhoto (20100412220801)
+Migrating to CreateAuthentications (20130119020645)
+Migrating to CreatePayments (20140826142831)
+Migrating to AddCardNumberToPayment (20140826142934)
+Migrating to AddCardMonthNumberToPayment (20140826142950)
+Migrating to AddCardYearNumberToPayment (20140826143004)
+Migrating to AddCardCvcToPayment (20140826143020)
+Migrating to AddNameToPayment (20140826144037)
+Migrating to AddLastNameToPayment (20140826144047)
+Migrating to AddCardTypeToPayment (20140826144106)
+Migrating to AddUserToPayment (20140826191131)
+Migrating to CreateCarts (20140826192442)
+Migrating to AddPhotoToPayment (20140826193849)
+Migrating to AddCartToPayment (20140826193902)
+Migrating to CreatePhotoCarts (20140827102719)
+Migrating to RemoveUserIdFromPhotoCart (20140827132138)
+Migrating to RemoveUserFromPhotoCart (20140827132228)
+Migrating to CreateCalendars (20140903083833)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (21.5ms)[0m  [1mCREATE TABLE "calendars" ("id" serial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20140903083833')
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Connecting to database specified by database.yml
+
+
+Started GET "/calendars" for 127.0.0.1 at 2014-09-03 10:39:49 +0200
+Processing by CalendarsController#index as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mCalendar Load (0.6ms)[0m  SELECT "calendars".* FROM "calendars" 
+  Rendered calendars/index.html.erb within layouts/application (1.1ms)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (1.2ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-03 08:39:49.970665', "perishable_token" = 'Pedx60Bypa13jQN2CMC', "updated_at" = '2014-09-03 08:39:49.991630' WHERE "users"."id" = 4
+  [1m[36m (2.6ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 207.3ms (Views: 110.4ms | ActiveRecord: 27.1ms)
+
+
+Started GET "/calendars" for 127.0.0.1 at 2014-09-03 10:40:11 +0200
+Processing by CalendarsController#index as HTML
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mCalendar Load (0.6ms)[0m  [1mSELECT "calendars".* FROM "calendars" [0m
+  Rendered calendars/index.html.erb within layouts/application (13.3ms)
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.8ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-03 08:40:11.573567', "perishable_token" = 'MP8RAJ6Tev9SsLCrIuFb', "updated_at" = '2014-09-03 08:40:11.576255' WHERE "users"."id" = 4[0m
+  [1m[35m (1.1ms)[0m  COMMIT
+Completed 200 OK in 31.3ms (Views: 23.4ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/calendars" for 127.0.0.1 at 2014-09-03 10:41:34 +0200
+Processing by CalendarsController#index as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mCalendar Load (0.5ms)[0m  SELECT "calendars".* FROM "calendars" 
+  Rendered calendars/index.html.erb within layouts/application (4.5ms)
+Completed 500 Internal Server Error in 10.1ms
+
+ActionView::Template::Error (can't convert nil into Integer):
+    1: <%= calendar(:year => @year, :month => @month, :first_day_of_week => 1) do |d|
+    2:   render_calendar_cell(d)
+    3: end
+    4:           %>
+  app/views/calendars/index.html.erb:1:in `_app_views_calendars_index_html_erb___561693449_88246160'
+  app/controllers/calendars_controller.rb:7:in `index'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.7ms)
+
+
+Started GET "/calendars" for 127.0.0.1 at 2014-09-03 10:45:34 +0200
+Processing by CalendarsController#index as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mCalendar Load (0.4ms)[0m  SELECT "calendars".* FROM "calendars" 
+  Rendered calendars/index.html.erb within layouts/application (13.2ms)
+Completed 500 Internal Server Error in 96.9ms
+
+ActionView::Template::Error (undefined method `render_calendar_cell' for #<#<Class:0xb869560>:0xb868da4>):
+    1: <%= calendar(:year => @year, :month => @month, :first_day_of_week => 1) do |d|
+    2:   render_calendar_cell(d)
+    3: end
+    4:           %>
+  app/views/calendars/index.html.erb:2:in `block in _app_views_calendars_index_html_erb___561693449_96691820'
+  app/views/calendars/index.html.erb:1:in `_app_views_calendars_index_html_erb___561693449_96691820'
+  app/controllers/calendars_controller.rb:9:in `index'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.2ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.5ms)
+
+
+Started GET "/calendars" for 127.0.0.1 at 2014-09-03 10:51:01 +0200
+Processing by CalendarsController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mCalendar Load (0.5ms)[0m  SELECT "calendars".* FROM "calendars" 
+  Rendered calendars/index.html.erb within layouts/application (9.6ms)
+Completed 500 Internal Server Error in 74.8ms
+
+ActionView::Template::Error (undefined method `render_calendar_cell' for #<#<Class:0xb807cc0>:0xb80739c>):
+    1: <%= calendar(:year => @year, :month => @month, :first_day_of_week => 1) do |d|
+    2:   render_calendar_cell(d)
+    3: end
+    4:           %>
+  app/views/calendars/index.html.erb:2:in `block in _app_views_calendars_index_html_erb___561693449_96691820'
+  app/views/calendars/index.html.erb:1:in `_app_views_calendars_index_html_erb___561693449_96691820'
+  app/controllers/calendars_controller.rb:9:in `index'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.1ms)
+
+
+Started GET "/calendars" for 127.0.0.1 at 2014-09-03 10:51:02 +0200
+Processing by CalendarsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mCalendar Load (0.5ms)[0m  SELECT "calendars".* FROM "calendars" 
+  Rendered calendars/index.html.erb within layouts/application (15.5ms)
+Completed 500 Internal Server Error in 22.2ms
+
+ActionView::Template::Error (undefined method `render_calendar_cell' for #<#<Class:0xb807cc0>:0xb87e17c>):
+    1: <%= calendar(:year => @year, :month => @month, :first_day_of_week => 1) do |d|
+    2:   render_calendar_cell(d)
+    3: end
+    4:           %>
+  app/views/calendars/index.html.erb:2:in `block in _app_views_calendars_index_html_erb___561693449_96691820'
+  app/views/calendars/index.html.erb:1:in `_app_views_calendars_index_html_erb___561693449_96691820'
+  app/controllers/calendars_controller.rb:9:in `index'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (61.6ms)
+
+
+Started GET "/calendars" for 127.0.0.1 at 2014-09-03 10:51:27 +0200
+Processing by CalendarsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mCalendar Load (0.6ms)[0m  SELECT "calendars".* FROM "calendars" 
+  Rendered calendars/index.html.erb within layouts/application (4.3ms)
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (0.9ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-03 08:51:27.287937', "perishable_token" = '8FWDcZH4xm7JEOG6iCE3', "updated_at" = '2014-09-03 08:51:27.300419' WHERE "users"."id" = 4
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 45.3ms (Views: 33.4ms | ActiveRecord: 9.2ms)
+
+
+Started GET "/calendars" for 127.0.0.1 at 2014-09-03 11:15:54 +0200
+Processing by CalendarsController#index as HTML
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mCalendar Load (0.4ms)[0m  [1mSELECT "calendars".* FROM "calendars" [0m
+  Rendered calendars/index.html.erb within layouts/application (2.5ms)
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.7ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-03 09:15:54.112087', "perishable_token" = 'G1TGdpzN8pr7wkW7M5I8', "updated_at" = '2014-09-03 09:15:54.115999' WHERE "users"."id" = 4[0m
+  [1m[35m (2.6ms)[0m  COMMIT
+Completed 200 OK in 30.8ms (Views: 22.0ms | ActiveRecord: 6.9ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateAlbum (20090520163842)
+Migrating to CreatePhotos (20090520165238)
+Migrating to AddPathToAlbumAndPhoto (20090520230047)
+Migrating to CreateUsers (20090522131931)
+Migrating to CreateTags (20090522190515)
+Migrating to CreatePhotoTags (20090522190622)
+Migrating to AddLocationToAlbum (20090528143605)
+Migrating to AddNameToUser (20090528152114)
+Migrating to AddNoteToAlbum (20090529155414)
+Migrating to AddLocationToPhoto (20090602120344)
+Migrating to CreateCollections (20090602131321)
+Migrating to CreateCollectionAlbums (20090602131547)
+Migrating to CreatePermissions (20090604202928)
+Migrating to CreateRoleMemberships (20090604202929)
+Migrating to CreateRoles (20090604202930)
+Migrating to AddIndexes (20091011222125)
+Migrating to AddFileToPhoto (20100412220801)
+Migrating to CreateAuthentications (20130119020645)
+Migrating to CreatePayments (20140826142831)
+Migrating to AddCardNumberToPayment (20140826142934)
+Migrating to AddCardMonthNumberToPayment (20140826142950)
+Migrating to AddCardYearNumberToPayment (20140826143004)
+Migrating to AddCardCvcToPayment (20140826143020)
+Migrating to AddNameToPayment (20140826144037)
+Migrating to AddLastNameToPayment (20140826144047)
+Migrating to AddCardTypeToPayment (20140826144106)
+Migrating to AddUserToPayment (20140826191131)
+Migrating to CreateCarts (20140826192442)
+Migrating to AddPhotoToPayment (20140826193849)
+Migrating to AddCartToPayment (20140826193902)
+Migrating to CreatePhotoCarts (20140827102719)
+Migrating to RemoveUserIdFromPhotoCart (20140827132138)
+Migrating to RemoveUserFromPhotoCart (20140827132228)
+Migrating to CreateCalendars (20140903083833)
+Migrating to CreateFullcalendarEngineEvents (20140903095624)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (12.1ms)[0m  [1mCREATE TABLE "fullcalendar_engine_events" ("id" serial primary key, "title" character varying(255), "starttime" timestamp, "endtime" timestamp, "all_day" boolean DEFAULT 'f', "description" text, "event_series_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.3ms)[0m  CREATE INDEX "index_fullcalendar_engine_events_on_event_series_id" ON "fullcalendar_engine_events" ("event_series_id")
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20140903095624')[0m
+  [1m[35m (1.6ms)[0m  COMMIT
+Migrating to CreateFullcalendarEngineEventSeries (20140903095625)
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (5.7ms)[0m  CREATE TABLE "fullcalendar_engine_event_series" ("id" serial primary key, "frequency" integer DEFAULT 1, "period" character varying(255) DEFAULT 'monthly', "starttime" timestamp, "endtime" timestamp, "all_day" boolean DEFAULT 'f', "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20140903095625')[0m
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.8ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+
+
+Started GET "/fullcalendar_engine" for 127.0.0.1 at 2014-09-03 11:57:20 +0200
+Processing by FullcalendarEngine::EventsController#index as HTML
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/_form.html.erb (124.5ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/index.html.erb within layouts/application (128.6ms)
+Completed 500 Internal Server Error in 160.8ms
+
+ActionView::Template::Error (undefined local variable or method `current_user' for #<#<Class:0xc5bb9d4>:0xc5bb45c>):
+    15: <div id="header">
+    16: 	<div id="action_links">
+    17: 	<%= yield :action_links %>
+    18: 	<% if current_user %>
+    19: 	Logged in as <%= link_to(current_user.name, 'account') %>
+    20: 	<%= link_to 'Logout', logout_path %>
+    21: 	<% end %>
+  app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb___680831475_103784020'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.4ms)
+
+
+Started GET "/account" for 127.0.0.1 at 2014-09-03 11:57:36 +0200
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (1.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (0.9ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (1.2ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-03 09:57:36.295177', "perishable_token" = 'KZrrKs0pu96qrMDsZU7O', "updated_at" = '2014-09-03 09:57:36.315237' WHERE "users"."id" = 4
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+  Rendered users/show.html.erb within layouts/application (55.7ms)
+Completed 200 OK in 153.7ms (Views: 61.0ms | ActiveRecord: 14.0ms)
+
+
+Started GET "/calendar" for 127.0.0.1 at 2014-09-03 11:57:42 +0200
+
+ActionController::RoutingError (No route matches [GET] "/calendar"):
+>>>>>>> bf4e4a17fb2b3ecd14b8577101250cf53500e73c
   actionpack (3.2.18) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
   actionpack (3.2.18) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
   railties (3.2.18) lib/rails/rack/logger.rb:32:in `call_app'
@@ -11810,6 +12479,7 @@ ActionController::RoutingError (No route matches [GET] "/register"):
   rack (1.4.5) lib/rack/content_length.rb:14:in `call'
   railties (3.2.18) lib/rails/rack/log_tailer.rb:17:in `call'
   rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+<<<<<<< HEAD
   /home/wazzzaabee/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
   /home/wazzzaabee/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
   /home/wazzzaabee/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
@@ -12125,6 +12795,255 @@ Completed 200 OK in 86.1ms (Views: 42.8ms | ActiveRecord: 30.2ms)
 Started GET "/stylesheets/application.css" for 127.0.0.1 at 2014-09-02 18:13:29 -0700
 
 ActionController::RoutingError (No route matches [GET] "/stylesheets/application.css"):
+=======
+  /home/tehrafff/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /home/tehrafff/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /home/tehrafff/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/calendars" for 127.0.0.1 at 2014-09-03 11:57:44 +0200
+Processing by CalendarsController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mCalendar Load (0.8ms)[0m  [1mSELECT "calendars".* FROM "calendars" [0m
+  Rendered calendars/index.html.erb within layouts/application (4.6ms)
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.7ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-03 09:57:44.672959', "perishable_token" = 'tLKLc4DdL4EXSvtAIHgY', "updated_at" = '2014-09-03 09:57:44.675331' WHERE "users"."id" = 4[0m
+  [1m[35m (2.8ms)[0m  COMMIT
+Completed 200 OK in 36.0ms (Views: 19.8ms | ActiveRecord: 10.7ms)
+
+
+Started GET "/fullcalendar_engine" for 127.0.0.1 at 2014-09-03 11:57:53 +0200
+Processing by FullcalendarEngine::EventsController#index as HTML
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/_form.html.erb (11.5ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/index.html.erb within layouts/application (12.7ms)
+Completed 500 Internal Server Error in 42.0ms
+
+ActionView::Template::Error (undefined local variable or method `current_user' for #<#<Class:0xc5bb9d4>:0xb376968>):
+    15: <div id="header">
+    16: 	<div id="action_links">
+    17: 	<%= yield :action_links %>
+    18: 	<% if current_user %>
+    19: 	Logged in as <%= link_to(current_user.name, 'account') %>
+    20: 	<%= link_to 'Logout', logout_path %>
+    21: 	<% end %>
+  app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb___680831475_103784020'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.8ms)
+
+
+Started GET "/carts/" for 127.0.0.1 at 2014-09-03 12:00:12 +0200
+Processing by CartsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.7ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-03 10:00:12.112954', "perishable_token" = 'TOvgIqHle2j222IE6eEa', "updated_at" = '2014-09-03 10:00:12.115447' WHERE "users"."id" = 4[0m
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36mCart Load (1.2ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = 4 ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."user_id" = 4 ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mPhotoCart Load (0.6ms)[0m  [1mSELECT "photo_carts".* FROM "photo_carts" WHERE "photo_carts"."cart_id" = 5[0m
+  [1m[35mPhoto Load (1.1ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."id" = 8 LIMIT 1
+  [1m[36mAlbum Load (1.3ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35mPhoto Load (1.1ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."id" = 7 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35mPhoto Load (0.9ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."id" = 6 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35mPhoto Load (0.9ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  Rendered carts/index.html.erb within layouts/application (170.3ms)
+Completed 200 OK in 208.5ms (Views: 158.3ms | ActiveRecord: 25.0ms)
+
+
+Started GET "/remove_from_cart?photo_id=8" for 127.0.0.1 at 2014-09-03 12:00:15 +0200
+Processing by PhotoCartsController#remove_from_cart as JS
+  Parameters: {"photo_id"=>"8"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (0.7ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-03 10:00:15.088437', "perishable_token" = 'pr0oswibTLtw7aB1FC46', "updated_at" = '2014-09-03 10:00:15.091146' WHERE "users"."id" = 4
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mCart Load (0.6ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."user_id" = 4 ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mDELETE FROM "photo_carts" WHERE "photo_carts"."cart_id" = 5 AND "photo_carts"."photo_id" = 8[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 19.0ms (Views: 2.6ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/remove_from_cart?photo_id=8" for 127.0.0.1 at 2014-09-03 12:00:15 +0200
+Processing by PhotoCartsController#remove_from_cart as JS
+  Parameters: {"photo_id"=>"8"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (0.7ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-03 10:00:15.124253', "perishable_token" = 'sdDRejhIjcjkZ6dIa226', "updated_at" = '2014-09-03 10:00:15.128069' WHERE "users"."id" = 4
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mCart Load (0.8ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."user_id" = 4 ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mDELETE FROM "photo_carts" WHERE "photo_carts"."cart_id" = 5 AND "photo_carts"."photo_id" = 8[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 18.7ms (Views: 0.8ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/remove_from_cart?photo_id=7" for 127.0.0.1 at 2014-09-03 12:00:16 +0200
+Processing by PhotoCartsController#remove_from_cart as JS
+  Parameters: {"photo_id"=>"7"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (0.8ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-03 10:00:16.178900', "perishable_token" = '9aU6uDzKuTlGcPmjTWY3', "updated_at" = '2014-09-03 10:00:16.181212' WHERE "users"."id" = 4
+  [1m[36m (2.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mCart Load (0.9ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."user_id" = 4 ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1mDELETE FROM "photo_carts" WHERE "photo_carts"."cart_id" = 5 AND "photo_carts"."photo_id" = 7[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 18.7ms (Views: 0.8ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/remove_from_cart?photo_id=7" for 127.0.0.1 at 2014-09-03 12:00:16 +0200
+Processing by PhotoCartsController#remove_from_cart as JS
+  Parameters: {"photo_id"=>"7"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (1.1ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-03 10:00:16.216581', "perishable_token" = '8Tgarla56p0T5vqCgE', "updated_at" = '2014-09-03 10:00:16.220401' WHERE "users"."id" = 4
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mCart Load (0.8ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."user_id" = 4 ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mDELETE FROM "photo_carts" WHERE "photo_carts"."cart_id" = 5 AND "photo_carts"."photo_id" = 7[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 21.5ms (Views: 0.8ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/remove_from_cart?photo_id=6" for 127.0.0.1 at 2014-09-03 12:00:17 +0200
+Processing by PhotoCartsController#remove_from_cart as JS
+  Parameters: {"photo_id"=>"6"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (0.7ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-03 10:00:17.061853', "perishable_token" = 'RkWQ25hL4kDo4CZwlPg', "updated_at" = '2014-09-03 10:00:17.064143' WHERE "users"."id" = 4
+  [1m[36m (2.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mCart Load (0.9ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."user_id" = 4 ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "photo_carts" WHERE "photo_carts"."cart_id" = 5 AND "photo_carts"."photo_id" = 6[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 63.8ms (Views: 0.6ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/remove_from_cart?photo_id=6" for 127.0.0.1 at 2014-09-03 12:00:17 +0200
+Processing by PhotoCartsController#remove_from_cart as JS
+  Parameters: {"photo_id"=>"6"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (0.6ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-03 10:00:17.140368', "perishable_token" = '9SVAeDpLuWhcIjwTPRzA', "updated_at" = '2014-09-03 10:00:17.143311' WHERE "users"."id" = 4
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mCart Load (0.6ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."user_id" = 4 ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mDELETE FROM "photo_carts" WHERE "photo_carts"."cart_id" = 5 AND "photo_carts"."photo_id" = 6[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 15.5ms (Views: 0.5ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/remove_from_cart?photo_id=5" for 127.0.0.1 at 2014-09-03 12:00:17 +0200
+Processing by PhotoCartsController#remove_from_cart as JS
+  Parameters: {"photo_id"=>"5"}
+  [1m[35mUser Load (2.2ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (0.8ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-03 10:00:17.884935', "perishable_token" = 'duAsvDLIqspckwdc0agH', "updated_at" = '2014-09-03 10:00:17.889173' WHERE "users"."id" = 4
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mCart Load (0.8ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."user_id" = 4 ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "photo_carts" WHERE "photo_carts"."cart_id" = 5 AND "photo_carts"."photo_id" = 5[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 22.7ms (Views: 0.8ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/remove_from_cart?photo_id=5" for 127.0.0.1 at 2014-09-03 12:00:17 +0200
+Processing by PhotoCartsController#remove_from_cart as JS
+  Parameters: {"photo_id"=>"5"}
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (0.9ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-03 10:00:17.925003', "perishable_token" = 'vfDiXvPozUohZuSYn4', "updated_at" = '2014-09-03 10:00:17.930573' WHERE "users"."id" = 4
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mCart Load (0.8ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."user_id" = 4 ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mDELETE FROM "photo_carts" WHERE "photo_carts"."cart_id" = 5 AND "photo_carts"."photo_id" = 5[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 25.0ms (Views: 0.8ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/carts/" for 127.0.0.1 at 2014-09-03 12:00:18 +0200
+Processing by CartsController#index as HTML
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (0.9ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-03 10:00:18.915957', "perishable_token" = 'jq9XbwAb7WshOgMJwCU0', "updated_at" = '2014-09-03 10:00:18.919873' WHERE "users"."id" = 4
+  [1m[36m (2.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mCart Load (0.9ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."user_id" = 4 ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = 4 ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mPhotoCart Load (0.9ms)[0m  SELECT "photo_carts".* FROM "photo_carts" WHERE "photo_carts"."cart_id" = 5
+  Rendered carts/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 30.6ms (Views: 8.6ms | ActiveRecord: 8.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-03 12:01:10 +0200
+Processing by CollectionsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mCollection Load (1.7ms)[0m  SELECT "collections".* FROM "collections" ORDER BY title
+  [1m[36m (1.4ms)[0m  [1mSELECT COUNT(*) FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2[0m
+  [1m[35mAlbum Load (1.1ms)[0m  SELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 LIMIT 1
+  [1m[36m (0.9ms)[0m  [1mSELECT COUNT(*) FROM "photos" WHERE "photos"."album_id" = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 LIMIT 1
+  [1m[36mPhoto Load (1.1ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 2 LIMIT 1[0m
+  [1m[35mAlbum Load (0.8ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (0.9ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-03 10:01:10.438289', "perishable_token" = 'trowB50c8mC4gRlCMI', "updated_at" = '2014-09-03 10:01:10.442087' WHERE "users"."id" = 4
+  [1m[36m (2.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (1.7ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'
+  [1m[36mRole Load (1.2ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'[0m
+  Rendered collections/index.html.erb within layouts/application (254.6ms)
+Completed 200 OK in 282.3ms (Views: 235.3ms | ActiveRecord: 30.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-03 12:01:12 +0200
+Processing by CollectionsController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mCollection Load (0.4ms)[0m  [1mSELECT "collections".* FROM "collections" ORDER BY title[0m
+  [1m[35m (1.2ms)[0m  SELECT COUNT(*) FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2
+  [1m[36mAlbum Load (0.5ms)[0m  [1mSELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 LIMIT 1[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "photos" WHERE "photos"."album_id" = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 LIMIT 1[0m
+  [1m[35mPhoto Load (0.7ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 2 LIMIT 1
+  [1m[36mAlbum Load (0.7ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.7ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-03 10:01:12.533970', "perishable_token" = '1buj6LeQU8xRuTlkn3y', "updated_at" = '2014-09-03 10:01:12.536628' WHERE "users"."id" = 4[0m
+  [1m[35m (2.5ms)[0m  COMMIT
+  [1m[36mRole Load (0.9ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'[0m
+  [1m[35mRole Load (0.9ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'
+  Rendered collections/index.html.erb within layouts/application (26.9ms)
+Completed 200 OK in 36.4ms (Views: 23.0ms | ActiveRecord: 11.8ms)
+
+
+Started GET "/fullcalendar" for 127.0.0.1 at 2014-09-03 12:04:01 +0200
+
+ActionController::RoutingError (No route matches [GET] "/fullcalendar"):
+>>>>>>> bf4e4a17fb2b3ecd14b8577101250cf53500e73c
   actionpack (3.2.18) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
   actionpack (3.2.18) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
   railties (3.2.18) lib/rails/rack/logger.rb:32:in `call_app'
@@ -12142,6 +13061,7 @@ ActionController::RoutingError (No route matches [GET] "/stylesheets/application
   rack (1.4.5) lib/rack/content_length.rb:14:in `call'
   railties (3.2.18) lib/rails/rack/log_tailer.rb:17:in `call'
   rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+<<<<<<< HEAD
   /home/wazzzaabee/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
   /home/wazzzaabee/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
   /home/wazzzaabee/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
@@ -12738,6 +13658,456 @@ Completed 200 OK in 80.9ms (Views: 34.7ms | ActiveRecord: 35.0ms)
 Started GET "/stylesheets/font-awesome" for 127.0.0.1 at 2014-09-02 18:42:33 -0700
 
 ActionController::RoutingError (No route matches [GET] "/stylesheets/font-awesome"):
+=======
+  /home/tehrafff/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /home/tehrafff/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /home/tehrafff/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/fullcalendar_engine" for 127.0.0.1 at 2014-09-03 12:04:04 +0200
+Processing by FullcalendarEngine::EventsController#index as HTML
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/_form.html.erb (11.8ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/index.html.erb within layouts/application (13.5ms)
+Completed 500 Internal Server Error in 114.9ms
+
+ActionView::Template::Error (undefined local variable or method `current_user' for #<#<Class:0xc5bb9d4>:0xcb6cdb0>):
+    15: <div id="header">
+    16: 	<div id="action_links">
+    17: 	<%= yield :action_links %>
+    18: 	<% if current_user %>
+    19: 	Logged in as <%= link_to(current_user.name, 'account') %>
+    20: 	<%= link_to 'Logout', logout_path %>
+    21: 	<% end %>
+  app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb___680831475_103709450'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.7ms)
+
+
+Started GET "/fullcalendar_engine" for 127.0.0.1 at 2014-09-03 12:06:12 +0200
+Processing by FullcalendarEngine::EventsController#index as HTML
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/_form.html.erb (39.6ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/index.html.erb within layouts/application (40.7ms)
+Completed 500 Internal Server Error in 68.1ms
+
+ActionView::Template::Error (undefined local variable or method `current_user' for #<#<Class:0xc579b88>:0xc579480>):
+    15: <div id="header">
+    16: 	<div id="action_links">
+    17: 	<%= yield :action_links %>
+    18: 	<% if current_user %>
+    19: 	Logged in as <%= link_to(current_user.name, 'account') %>
+    20: 	<%= link_to 'Logout', logout_path %>
+    21: 	<% end %>
+  app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb___680831475_103709450'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (62.2ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (72.5ms)
+
+
+Started GET "/fullcalendar_engine" for 127.0.0.1 at 2014-09-03 12:06:13 +0200
+Processing by FullcalendarEngine::EventsController#index as HTML
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/_form.html.erb (11.2ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/index.html.erb within layouts/application (12.4ms)
+Completed 500 Internal Server Error in 37.6ms
+
+ActionView::Template::Error (undefined local variable or method `current_user' for #<#<Class:0xc579b88>:0xb2ef5bc>):
+    15: <div id="header">
+    16: 	<div id="action_links">
+    17: 	<%= yield :action_links %>
+    18: 	<% if current_user %>
+    19: 	Logged in as <%= link_to(current_user.name, 'account') %>
+    20: 	<%= link_to 'Logout', logout_path %>
+    21: 	<% end %>
+  app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb___680831475_103709450'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.3ms)
+
+
+Started GET "/fullcalendar_engine" for 127.0.0.1 at 2014-09-03 12:06:14 +0200
+Processing by FullcalendarEngine::EventsController#index as HTML
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/_form.html.erb (11.9ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/index.html.erb within layouts/application (13.2ms)
+Completed 500 Internal Server Error in 107.2ms
+
+ActionView::Template::Error (undefined local variable or method `current_user' for #<#<Class:0xc579b88>:0xc60974c>):
+    15: <div id="header">
+    16: 	<div id="action_links">
+    17: 	<%= yield :action_links %>
+    18: 	<% if current_user %>
+    19: 	Logged in as <%= link_to(current_user.name, 'account') %>
+    20: 	<%= link_to 'Logout', logout_path %>
+    21: 	<% end %>
+  app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb___680831475_103709450'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.3ms)
+
+
+Started GET "/fullcalendar_engine" for 127.0.0.1 at 2014-09-03 12:06:15 +0200
+Processing by FullcalendarEngine::EventsController#index as HTML
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/_form.html.erb (11.5ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/index.html.erb within layouts/application (12.8ms)
+Completed 500 Internal Server Error in 46.4ms
+
+ActionView::Template::Error (undefined local variable or method `current_user' for #<#<Class:0xc579b88>:0xc2e4e90>):
+    15: <div id="header">
+    16: 	<div id="action_links">
+    17: 	<%= yield :action_links %>
+    18: 	<% if current_user %>
+    19: 	Logged in as <%= link_to(current_user.name, 'account') %>
+    20: 	<%= link_to 'Logout', logout_path %>
+    21: 	<% end %>
+  app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb___680831475_103709450'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.3ms)
+
+
+Started GET "/fullcalendar_engine" for 127.0.0.1 at 2014-09-03 12:06:15 +0200
+Processing by FullcalendarEngine::EventsController#index as HTML
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/_form.html.erb (11.0ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/index.html.erb within layouts/application (12.2ms)
+Completed 500 Internal Server Error in 37.7ms
+
+ActionView::Template::Error (undefined local variable or method `current_user' for #<#<Class:0xc579b88>:0xb442504>):
+    15: <div id="header">
+    16: 	<div id="action_links">
+    17: 	<%= yield :action_links %>
+    18: 	<% if current_user %>
+    19: 	Logged in as <%= link_to(current_user.name, 'account') %>
+    20: 	<%= link_to 'Logout', logout_path %>
+    21: 	<% end %>
+  app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb___680831475_103709450'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.5ms)
+
+
+Started GET "/fullcalendar_engine" for 127.0.0.1 at 2014-09-03 12:06:15 +0200
+Processing by FullcalendarEngine::EventsController#index as HTML
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/_form.html.erb (10.8ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/index.html.erb within layouts/application (12.0ms)
+Completed 500 Internal Server Error in 103.1ms
+
+ActionView::Template::Error (undefined local variable or method `current_user' for #<#<Class:0xc579b88>:0xc64afa8>):
+    15: <div id="header">
+    16: 	<div id="action_links">
+    17: 	<%= yield :action_links %>
+    18: 	<% if current_user %>
+    19: 	Logged in as <%= link_to(current_user.name, 'account') %>
+    20: 	<%= link_to 'Logout', logout_path %>
+    21: 	<% end %>
+  app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb___680831475_103709450'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.3ms)
+
+
+Started GET "/fullcalendar_engine" for 127.0.0.1 at 2014-09-03 12:06:15 +0200
+Processing by FullcalendarEngine::EventsController#index as HTML
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/_form.html.erb (10.8ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/index.html.erb within layouts/application (12.0ms)
+Completed 500 Internal Server Error in 37.6ms
+
+ActionView::Template::Error (undefined local variable or method `current_user' for #<#<Class:0xc579b88>:0xc2ffe98>):
+    15: <div id="header">
+    16: 	<div id="action_links">
+    17: 	<%= yield :action_links %>
+    18: 	<% if current_user %>
+    19: 	Logged in as <%= link_to(current_user.name, 'account') %>
+    20: 	<%= link_to 'Logout', logout_path %>
+    21: 	<% end %>
+  app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb___680831475_103709450'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.8ms)
+
+
+Started GET "/fullcalendar_engine" for 127.0.0.1 at 2014-09-03 12:06:16 +0200
+Processing by FullcalendarEngine::EventsController#index as HTML
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/_form.html.erb (10.9ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/index.html.erb within layouts/application (12.6ms)
+Completed 500 Internal Server Error in 40.1ms
+
+ActionView::Template::Error (undefined local variable or method `current_user' for #<#<Class:0xc579b88>:0xb5d5290>):
+    15: <div id="header">
+    16: 	<div id="action_links">
+    17: 	<%= yield :action_links %>
+    18: 	<% if current_user %>
+    19: 	Logged in as <%= link_to(current_user.name, 'account') %>
+    20: 	<%= link_to 'Logout', logout_path %>
+    21: 	<% end %>
+  app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb___680831475_103709450'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.5ms)
+
+
+Started GET "/fullcalendar_engine" for 127.0.0.1 at 2014-09-03 12:06:16 +0200
+Processing by FullcalendarEngine::EventsController#index as HTML
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/_form.html.erb (10.7ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/index.html.erb within layouts/application (11.9ms)
+Completed 500 Internal Server Error in 104.3ms
+
+ActionView::Template::Error (undefined local variable or method `current_user' for #<#<Class:0xc579b88>:0xcaacd1c>):
+    15: <div id="header">
+    16: 	<div id="action_links">
+    17: 	<%= yield :action_links %>
+    18: 	<% if current_user %>
+    19: 	Logged in as <%= link_to(current_user.name, 'account') %>
+    20: 	<%= link_to 'Logout', logout_path %>
+    21: 	<% end %>
+  app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb___680831475_103709450'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.1ms)
+
+
+Started GET "/fullcalendar_engine" for 127.0.0.1 at 2014-09-03 12:06:16 +0200
+Processing by FullcalendarEngine::EventsController#index as HTML
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/_form.html.erb (12.8ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/index.html.erb within layouts/application (15.1ms)
+Completed 500 Internal Server Error in 103.6ms
+
+ActionView::Template::Error (undefined local variable or method `current_user' for #<#<Class:0xc579b88>:0xc30bea0>):
+    15: <div id="header">
+    16: 	<div id="action_links">
+    17: 	<%= yield :action_links %>
+    18: 	<% if current_user %>
+    19: 	Logged in as <%= link_to(current_user.name, 'account') %>
+    20: 	<%= link_to 'Logout', logout_path %>
+    21: 	<% end %>
+  app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb___680831475_103709450'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.3ms)
+
+
+Started GET "/fullcalendar_engine" for 127.0.0.1 at 2014-09-03 12:16:09 +0200
+Processing by FullcalendarEngine::EventsController#index as HTML
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/_form.html.erb (15.0ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/index.html.erb within layouts/application (16.6ms)
+Completed 500 Internal Server Error in 47.3ms
+
+ActionView::Template::Error (undefined local variable or method `current_user' for #<#<Class:0xc579b88>:0xc2cec08>):
+    15: <div id="header">
+    16: 	<div id="action_links">
+    17: 	<%= yield :action_links %>
+    18: 	<% if current_user %>
+    19: 	Logged in as <%= link_to(current_user.name, 'account') %>
+    20: 	<%= link_to 'Logout', logout_path %>
+    21: 	<% end %>
+  app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb___680831475_103709450'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.3ms)
+
+
+Started GET "/fullcalendar_engine" for 127.0.0.1 at 2014-09-03 12:16:10 +0200
+Processing by FullcalendarEngine::EventsController#index as HTML
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/_form.html.erb (12.1ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/index.html.erb within layouts/application (13.4ms)
+Completed 500 Internal Server Error in 112.0ms
+
+ActionView::Template::Error (undefined local variable or method `current_user' for #<#<Class:0xc579b88>:0xcad3ea8>):
+    15: <div id="header">
+    16: 	<div id="action_links">
+    17: 	<%= yield :action_links %>
+    18: 	<% if current_user %>
+    19: 	Logged in as <%= link_to(current_user.name, 'account') %>
+    20: 	<%= link_to 'Logout', logout_path %>
+    21: 	<% end %>
+  app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb___680831475_103709450'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.5ms)
+
+
+Started GET "/fullcalendar_engine" for 127.0.0.1 at 2014-09-03 12:16:11 +0200
+Processing by FullcalendarEngine::EventsController#index as HTML
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/_form.html.erb (10.8ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/index.html.erb within layouts/application (13.9ms)
+Completed 500 Internal Server Error in 105.4ms
+
+ActionView::Template::Error (undefined local variable or method `current_user' for #<#<Class:0xc579b88>:0xc3129e4>):
+    15: <div id="header">
+    16: 	<div id="action_links">
+    17: 	<%= yield :action_links %>
+    18: 	<% if current_user %>
+    19: 	Logged in as <%= link_to(current_user.name, 'account') %>
+    20: 	<%= link_to 'Logout', logout_path %>
+    21: 	<% end %>
+  app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb___680831475_103709450'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.8ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.9ms)
+
+
+Started GET "/fullcalendar_engine" for 127.0.0.1 at 2014-09-03 12:16:11 +0200
+Processing by FullcalendarEngine::EventsController#index as HTML
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/_form.html.erb (10.7ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/index.html.erb within layouts/application (12.0ms)
+Completed 500 Internal Server Error in 42.3ms
+
+ActionView::Template::Error (undefined local variable or method `current_user' for #<#<Class:0xc579b88>:0xb61d6d0>):
+    15: <div id="header">
+    16: 	<div id="action_links">
+    17: 	<%= yield :action_links %>
+    18: 	<% if current_user %>
+    19: 	Logged in as <%= link_to(current_user.name, 'account') %>
+    20: 	<%= link_to 'Logout', logout_path %>
+    21: 	<% end %>
+  app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb___680831475_103709450'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.3ms)
+
+
+Started GET "/fullcalendar_engine" for 127.0.0.1 at 2014-09-03 12:16:12 +0200
+Processing by FullcalendarEngine::EventsController#index as HTML
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/_form.html.erb (11.0ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/index.html.erb within layouts/application (12.2ms)
+Completed 500 Internal Server Error in 115.8ms
+
+ActionView::Template::Error (undefined local variable or method `current_user' for #<#<Class:0xc579b88>:0xcac2d60>):
+    15: <div id="header">
+    16: 	<div id="action_links">
+    17: 	<%= yield :action_links %>
+    18: 	<% if current_user %>
+    19: 	Logged in as <%= link_to(current_user.name, 'account') %>
+    20: 	<%= link_to 'Logout', logout_path %>
+    21: 	<% end %>
+  app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb___680831475_103709450'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.5ms)
+
+
+Started GET "/fullcalendar_engine" for 127.0.0.1 at 2014-09-03 12:16:12 +0200
+Processing by FullcalendarEngine::EventsController#index as HTML
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/_form.html.erb (16.0ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/index.html.erb within layouts/application (17.3ms)
+Completed 500 Internal Server Error in 113.6ms
+
+ActionView::Template::Error (undefined local variable or method `current_user' for #<#<Class:0xc579b88>:0xc312e80>):
+    15: <div id="header">
+    16: 	<div id="action_links">
+    17: 	<%= yield :action_links %>
+    18: 	<% if current_user %>
+    19: 	Logged in as <%= link_to(current_user.name, 'account') %>
+    20: 	<%= link_to 'Logout', logout_path %>
+    21: 	<% end %>
+  app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb___680831475_103709450'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.8ms)
+
+
+Started GET "/fullcalendar_engine" for 127.0.0.1 at 2014-09-03 12:16:12 +0200
+Processing by FullcalendarEngine::EventsController#index as HTML
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/_form.html.erb (13.5ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/index.html.erb within layouts/application (14.7ms)
+Completed 500 Internal Server Error in 40.9ms
+
+ActionView::Template::Error (undefined local variable or method `current_user' for #<#<Class:0xc579b88>:0xb61db6c>):
+    15: <div id="header">
+    16: 	<div id="action_links">
+    17: 	<%= yield :action_links %>
+    18: 	<% if current_user %>
+    19: 	Logged in as <%= link_to(current_user.name, 'account') %>
+    20: 	<%= link_to 'Logout', logout_path %>
+    21: 	<% end %>
+  app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb___680831475_103709450'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.9ms)
+
+
+Started GET "/fullcalendar_engine" for 127.0.0.1 at 2014-09-03 12:16:13 +0200
+Processing by FullcalendarEngine::EventsController#index as HTML
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/_form.html.erb (18.0ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/index.html.erb within layouts/application (19.7ms)
+Completed 500 Internal Server Error in 118.2ms
+
+ActionView::Template::Error (undefined local variable or method `current_user' for #<#<Class:0xc579b88>:0xcac3558>):
+    15: <div id="header">
+    16: 	<div id="action_links">
+    17: 	<%= yield :action_links %>
+    18: 	<% if current_user %>
+    19: 	Logged in as <%= link_to(current_user.name, 'account') %>
+    20: 	<%= link_to 'Logout', logout_path %>
+    21: 	<% end %>
+  app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb___680831475_103709450'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.7ms)
+
+
+Started GET "/fullcalendar_engine/index" for 127.0.0.1 at 2014-09-03 12:16:16 +0200
+
+ActionController::RoutingError (No route matches [GET] "/fullcalendar_engine/index"):
+>>>>>>> bf4e4a17fb2b3ecd14b8577101250cf53500e73c
   actionpack (3.2.18) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
   actionpack (3.2.18) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
   railties (3.2.18) lib/rails/rack/logger.rb:32:in `call_app'
@@ -12755,6 +14125,7 @@ ActionController::RoutingError (No route matches [GET] "/stylesheets/font-awesom
   rack (1.4.5) lib/rack/content_length.rb:14:in `call'
   railties (3.2.18) lib/rails/rack/log_tailer.rb:17:in `call'
   rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+<<<<<<< HEAD
   /home/wazzzaabee/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
   /home/wazzzaabee/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
   /home/wazzzaabee/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
@@ -12906,6 +14277,19 @@ Completed 200 OK in 75.7ms (Views: 22.4ms | ActiveRecord: 47.4ms)
 Started GET "/stylesheets/application.css" for 127.0.0.1 at 2014-09-02 18:49:25 -0700
 
 ActionController::RoutingError (No route matches [GET] "/stylesheets/application.css"):
+=======
+  /home/tehrafff/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /home/tehrafff/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /home/tehrafff/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/fullcalendar_engine/new" for 127.0.0.1 at 2014-09-03 12:16:21 +0200
+
+ActionController::RoutingError (No route matches [GET] "/fullcalendar_engine/new"):
+>>>>>>> bf4e4a17fb2b3ecd14b8577101250cf53500e73c
   actionpack (3.2.18) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
   actionpack (3.2.18) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
   railties (3.2.18) lib/rails/rack/logger.rb:32:in `call_app'
@@ -12923,6 +14307,7 @@ ActionController::RoutingError (No route matches [GET] "/stylesheets/application
   rack (1.4.5) lib/rack/content_length.rb:14:in `call'
   railties (3.2.18) lib/rails/rack/log_tailer.rb:17:in `call'
   rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+<<<<<<< HEAD
   /home/wazzzaabee/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
   /home/wazzzaabee/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
   /home/wazzzaabee/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
@@ -21565,3 +22950,721 @@ Processing by CollectionsController#index as HTML
   [1m[36mRole Load (0.4ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'[0m
   Rendered collections/index.html.erb within layouts/application (35.3ms)
 Completed 200 OK in 42.3ms (Views: 21.7ms | ActiveRecord: 18.3ms)
+=======
+  /home/tehrafff/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /home/tehrafff/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /home/tehrafff/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/fullcalendar_engine" for 127.0.0.1 at 2014-09-03 12:16:25 +0200
+Processing by FullcalendarEngine::EventsController#index as HTML
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/_form.html.erb (20.6ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/index.html.erb within layouts/application (21.9ms)
+Completed 500 Internal Server Error in 114.5ms
+
+ActionView::Template::Error (undefined local variable or method `current_user' for #<#<Class:0xc579b88>:0xc487568>):
+    15: <div id="header">
+    16: 	<div id="action_links">
+    17: 	<%= yield :action_links %>
+    18: 	<% if current_user %>
+    19: 	Logged in as <%= link_to(current_user.name, 'account') %>
+    20: 	<%= link_to 'Logout', logout_path %>
+    21: 	<% end %>
+  app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb___680831475_103709450'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.9ms)
+
+
+Started GET "/fullcalendar_engine" for 127.0.0.1 at 2014-09-03 12:17:18 +0200
+Processing by FullcalendarEngine::EventsController#index as HTML
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/_form.html.erb (11.1ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/index.html.erb within layouts/application (12.2ms)
+Completed 500 Internal Server Error in 40.2ms
+
+ActionView::Template::Error (undefined local variable or method `current_user' for #<#<Class:0xc579b88>:0xb64e30c>):
+    15: <div id="header">
+    16: 	<div id="action_links">
+    17: 	<%= yield :action_links %>
+    18: 	<% if current_user %>
+    19: 	Logged in as <%= link_to(current_user.name, 'account') %>
+    20: 	<%= link_to 'Logout', logout_path %>
+    21: 	<% end %>
+  app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb___680831475_103709450'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.2ms)
+
+
+Started GET "/fullcalendar_engine" for 127.0.0.1 at 2014-09-03 12:17:18 +0200
+Processing by FullcalendarEngine::EventsController#index as HTML
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/_form.html.erb (14.1ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/index.html.erb within layouts/application (15.3ms)
+Completed 500 Internal Server Error in 111.6ms
+
+ActionView::Template::Error (undefined local variable or method `current_user' for #<#<Class:0xc579b88>:0xcaceae8>):
+    15: <div id="header">
+    16: 	<div id="action_links">
+    17: 	<%= yield :action_links %>
+    18: 	<% if current_user %>
+    19: 	Logged in as <%= link_to(current_user.name, 'account') %>
+    20: 	<%= link_to 'Logout', logout_path %>
+    21: 	<% end %>
+  app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb___680831475_103709450'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.5ms)
+
+
+Started GET "/fullcalendar_engine" for 127.0.0.1 at 2014-09-03 12:17:19 +0200
+Processing by FullcalendarEngine::EventsController#index as HTML
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/_form.html.erb (14.3ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/fullcalendar_engine-1.0.1/app/views/fullcalendar_engine/events/index.html.erb within layouts/application (16.8ms)
+Completed 500 Internal Server Error in 109.4ms
+
+ActionView::Template::Error (undefined local variable or method `current_user' for #<#<Class:0xc579b88>:0xc321a70>):
+    15: <div id="header">
+    16: 	<div id="action_links">
+    17: 	<%= yield :action_links %>
+    18: 	<% if current_user %>
+    19: 	Logged in as <%= link_to(current_user.name, 'account') %>
+    20: 	<%= link_to 'Logout', logout_path %>
+    21: 	<% end %>
+  app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb___680831475_103709450'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.9ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/fullcalendar_engine" for 127.0.0.1 at 2014-09-03 12:23:53 +0200
+Processing by FullcalendarEngine::EventsController#index as HTML
+  Rendered vendor/gems/fullcalendar_engine-1.0.6/app/views/fullcalendar_engine/events/_form.html.erb (66.1ms)
+  Rendered vendor/gems/fullcalendar_engine-1.0.6/app/views/fullcalendar_engine/events/index.html.erb within layouts/application (70.0ms)
+Completed 500 Internal Server Error in 153.6ms
+
+ActionView::Template::Error (undefined local variable or method `current_user' for #<#<Class:0xa225984>:0xa52e374>):
+    15: <div id="header">
+    16: 	<div id="action_links">
+    17: 	<%= yield :action_links %>
+    18: 	<% if current_user %>
+    19: 	Logged in as <%= link_to(current_user.name, 'account') %>
+    20: 	<%= link_to 'Logout', logout_path %>
+    21: 	<% end %>
+  app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb__1063120713_86837090'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.3ms)
+
+
+Started GET "/fullcalendar_engine" for 127.0.0.1 at 2014-09-03 12:25:19 +0200
+Processing by FullcalendarEngine::EventsController#index as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  Rendered vendor/gems/fullcalendar_engine-1.0.6/app/views/fullcalendar_engine/events/_form.html.erb (32.0ms)
+  Rendered vendor/gems/fullcalendar_engine-1.0.6/app/views/fullcalendar_engine/events/index.html.erb within layouts/application (32.8ms)
+  [1m[35mUser Load (2.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.9ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (1.2ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-03 10:25:19.250769', "perishable_token" = '8d9XOhJkJpTQWnAh09MV', "updated_at" = '2014-09-03 10:25:19.272374' WHERE "users"."id" = 4[0m
+  [1m[35m (2.7ms)[0m  COMMIT
+Completed 500 Internal Server Error in 232.2ms
+
+ActionView::Template::Error (undefined local variable or method `logout_path' for #<#<Class:0xb4c948c>:0xb4c8eb0>):
+    17: 	<%= yield :action_links %>
+    18: 	<% if current_user %>
+    19: 	Logged in as <%= link_to(current_user.name, 'account') %>
+    20: 	<%= link_to 'Logout', logout_path %>
+    21: 	<% end %>
+    22: 	</div>
+    23: 	<h1>
+  app/views/layouts/application.html.erb:20:in `_app_views_layouts_application_html_erb__1063120713_86837090'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.4ms)
+
+
+Started GET "/fullcalendar_engine" for 127.0.0.1 at 2014-09-03 12:29:09 +0200
+Processing by FullcalendarEngine::EventsController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  Rendered vendor/gems/fullcalendar_engine-1.0.6/app/views/fullcalendar_engine/events/_form.html.erb (102.0ms)
+  Rendered vendor/gems/fullcalendar_engine-1.0.6/app/views/fullcalendar_engine/events/index.html.erb within layouts/application (102.8ms)
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.7ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-03 10:29:09.469692', "perishable_token" = 'PgXvNnhxAPQfPvM7JPR', "updated_at" = '2014-09-03 10:29:09.481672' WHERE "users"."id" = 4[0m
+  [1m[35m (5.9ms)[0m  COMMIT
+Completed 500 Internal Server Error in 224.4ms
+
+ActionView::Template::Error (undefined local variable or method `logout_path' for #<#<Class:0xc784180>:0xc797bb8>):
+    17: 	<%= yield :action_links %>
+    18: 	<% if current_user %>
+    19: 	Logged in as <%= link_to(current_user.name, 'account') %>
+    20: 	<%= link_to 'Logout', logout_path %>
+    21: 	<% end %>
+    22: 	</div>
+    23: 	<h1>
+  app/views/layouts/application.html.erb:20:in `_app_views_layouts_application_html_erb__1063120713_86837090'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.8ms)
+
+
+Started GET "/fullcalendar_engine" for 127.0.0.1 at 2014-09-03 12:30:12 +0200
+Processing by FullcalendarEngine::EventsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  Rendered vendor/gems/fullcalendar_engine-1.0.6/app/views/fullcalendar_engine/events/_form.html.erb (94.0ms)
+  Rendered vendor/gems/fullcalendar_engine-1.0.6/app/views/fullcalendar_engine/events/index.html.erb within layouts/application (95.4ms)
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.8ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-03 10:30:13.066532', "perishable_token" = 'PZuVjUBusw1bJJ4i6QFH', "updated_at" = '2014-09-03 10:30:13.078852' WHERE "users"."id" = 4[0m
+  [1m[35m (2.0ms)[0m  COMMIT
+Completed 500 Internal Server Error in 188.0ms
+
+ActionController::RoutingError (No route matches {:controller=>"fullcalendar_engine/user_sessions", :method=>:delete}):
+  app/views/layouts/application.html.erb:20:in `_app_views_layouts_application_html_erb__1063120713_103681230'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/fullcalendar_engine" for 127.0.0.1 at 2014-09-03 12:34:57 +0200
+Processing by FullcalendarEngine::EventsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  Rendered vendor/gems/fullcalendar_engine-1.0.6/app/views/fullcalendar_engine/events/_form.html.erb (11.1ms)
+  Rendered vendor/gems/fullcalendar_engine-1.0.6/app/views/fullcalendar_engine/events/index.html.erb within layouts/application (11.9ms)
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.7ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-03 10:34:57.452770', "perishable_token" = 'Ec4f6ufyi2weUAwcQcow', "updated_at" = '2014-09-03 10:34:57.455692' WHERE "users"."id" = 4[0m
+  [1m[35m (0.9ms)[0m  COMMIT
+Completed 500 Internal Server Error in 28.7ms
+
+ActionController::RoutingError (No route matches {:controller=>"fullcalendar_engine/user_sessions", :method=>:delete}):
+  app/views/layouts/application.html.erb:20:in `_app_views_layouts_application_html_erb__1063120713_94414430'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/fullcalendar_engine" for 127.0.0.1 at 2014-09-03 12:50:08 +0200
+Processing by FullcalendarEngine::EventsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  Rendered vendor/gems/fullcalendar_engine-1.0.6/app/views/fullcalendar_engine/events/_form.html.erb (11.0ms)
+  Rendered vendor/gems/fullcalendar_engine-1.0.6/app/views/fullcalendar_engine/events/index.html.erb within layouts/application (11.7ms)
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.7ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-03 10:50:08.133027', "perishable_token" = 'k8AFObDATzRdnnaYCyB', "updated_at" = '2014-09-03 10:50:08.135836' WHERE "users"."id" = 4[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+Completed 500 Internal Server Error in 24.9ms
+
+ActionController::RoutingError (No route matches {:controller=>"fullcalendar_engine/user_sessions", :method=>:delete}):
+  app/views/layouts/application.html.erb:20:in `_app_views_layouts_application_html_erb__1063120713_94414430'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/fullcalendar_engine" for 127.0.0.1 at 2014-09-03 12:50:08 +0200
+Processing by FullcalendarEngine::EventsController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  Rendered vendor/gems/fullcalendar_engine-1.0.6/app/views/fullcalendar_engine/events/_form.html.erb (11.1ms)
+  Rendered vendor/gems/fullcalendar_engine-1.0.6/app/views/fullcalendar_engine/events/index.html.erb within layouts/application (11.9ms)
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.5ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-03 10:50:08.821302', "perishable_token" = 'Ja2BUrsGwu21YCuT0j1', "updated_at" = '2014-09-03 10:50:08.823771' WHERE "users"."id" = 4[0m
+  [1m[35m (2.0ms)[0m  COMMIT
+Completed 500 Internal Server Error in 27.1ms
+
+ActionController::RoutingError (No route matches {:controller=>"fullcalendar_engine/user_sessions", :method=>:delete}):
+  app/views/layouts/application.html.erb:20:in `_app_views_layouts_application_html_erb__1063120713_94414430'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/collections/2-test" for 127.0.0.1 at 2014-09-03 12:50:16 +0200
+Processing by CollectionsController#show as HTML
+  Parameters: {"id"=>"2-test"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mCollection Load (1.2ms)[0m  SELECT "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT 1  [["id", "2-test"]]
+  [1m[36mAlbum Load (2.9ms)[0m  [1mSELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 ORDER BY title[0m
+  [1m[35m (1.2ms)[0m  SELECT COUNT(*) FROM "photos" WHERE "photos"."album_id" = 2
+  [1m[36mPhoto Load (0.8ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 2 LIMIT 1[0m
+  [1m[35mAlbum Load (1.2ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  [1m[36mCollection Load (1.3ms)[0m  [1mSELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1[0m
+  Rendered photos/_thumb.html.erb (172.7ms)
+  [1m[35mPhoto Load (1.5ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 2 LIMIT 5 OFFSET 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  Rendered photos/_thumb.html.erb (19.4ms)
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (0.8ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-03 10:50:16.855490', "perishable_token" = 'JZ5azPJLweDxEbVPoNw', "updated_at" = '2014-09-03 10:50:16.858105' WHERE "users"."id" = 4
+  [1m[36m (2.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (1.8ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'
+  [1m[36mRole Load (1.2ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'[0m
+  Rendered collections/show.html.erb within layouts/application (315.1ms)
+Completed 500 Internal Server Error in 481.7ms
+
+ActionController::RoutingError (No route matches {:controller=>"user_sessions", :method=>:delete}):
+  app/views/layouts/application.html.erb:20:in `_app_views_layouts_application_html_erb__1063120713_94414430'
+  app/controllers/collections_controller.rb:17:in `show'
+  app/middleware/flash_session_cookie_middleware.rb:16:in `call'
+
+
+  Rendered /home/tehrafff/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/collections/2-test" for 127.0.0.1 at 2014-09-03 12:50:37 +0200
+Processing by CollectionsController#show as HTML
+  Parameters: {"id"=>"2-test"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mCollection Load (0.6ms)[0m  [1mSELECT "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT 1[0m  [["id", "2-test"]]
+  [1m[35mAlbum Load (1.1ms)[0m  SELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 ORDER BY title
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM "photos" WHERE "photos"."album_id" = 2[0m
+  [1m[35mPhoto Load (0.8ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 2 LIMIT 1
+  [1m[36mAlbum Load (0.8ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35mCollection Load (1.0ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  Rendered photos/_thumb.html.erb (5.5ms)
+  [1m[36mPhoto Load (1.0ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 2 LIMIT 5 OFFSET 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1[0m
+  Rendered photos/_thumb.html.erb (17.5ms)
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.9ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-03 10:50:37.375170', "perishable_token" = '0DJ8z4HDvcBuGBLWVBia', "updated_at" = '2014-09-03 10:50:37.378920' WHERE "users"."id" = 4[0m
+  [1m[35m (2.5ms)[0m  COMMIT
+  [1m[36mRole Load (1.0ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'[0m
+  [1m[35mRole Load (0.8ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'
+  Rendered collections/show.html.erb within layouts/application (50.6ms)
+Completed 200 OK in 66.7ms (Views: 47.9ms | ActiveRecord: 14.1ms)
+
+
+Started GET "/collections/2-test/albums/2-test/photos/8-caraibes" for 127.0.0.1 at 2014-09-03 12:50:39 +0200
+Processing by PhotosController#show as HTML
+  Parameters: {"collection_id"=>"2-test", "album_id"=>"2-test", "id"=>"8-caraibes"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mPhoto Load (1.1ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."id" = $1 LIMIT 1  [["id", "8-caraibes"]]
+  [1m[36mAlbum Load (0.6ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35m (1.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "photos" WHERE (id < 8 AND album_Id = 2 ) LIMIT 1) subquery_for_count 
+  [1m[36mPhoto Load (1.2ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE (id < 8 AND album_Id = 2 ) ORDER BY id DESC LIMIT 1[0m
+  [1m[35m (0.9ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "photos" WHERE (id > 8 AND album_Id = 2 ) LIMIT 1) subquery_for_count 
+  [1m[36mCollection Load (1.2ms)[0m  [1mSELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  [1m[36mTag Load (1.6ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "photo_tags" ON "tags"."id" = "photo_tags"."tag_id" WHERE "photo_tags"."photo_id" = 8[0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.8ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.9ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-03 10:50:39.529050', "perishable_token" = '40nUsCihx4LNvnljeB8j', "updated_at" = '2014-09-03 10:50:39.533010' WHERE "users"."id" = 4[0m
+  [1m[35m (2.0ms)[0m  COMMIT
+  [1m[36mRole Load (1.0ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'[0m
+  [1m[35mRole Load (1.0ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'
+  Rendered photos/show.html.erb within layouts/application (64.3ms)
+Completed 200 OK in 90.1ms (Views: 58.2ms | ActiveRecord: 21.0ms)
+
+
+Started POST "/photo_carts?photo_id=8" for 127.0.0.1 at 2014-09-03 12:50:41 +0200
+Processing by PhotoCartsController#create as JS
+  Parameters: {"photo_id"=>"8"}
+WARNING: Can't verify CSRF token authenticity
+  [1m[36mUser Load (2.9ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.8ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-03 10:50:41.696899', "perishable_token" = '31z2oN5RA9JCPIZBC11h', "updated_at" = '2014-09-03 10:50:41.699460' WHERE "users"."id" = 4[0m
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36mCart Load (0.8ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = 4 ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."user_id" = 4 ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mPhoto Load (0.7ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."id" = $1 LIMIT 1[0m  [["id", "8"]]
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (2.2ms)[0m  [1mINSERT INTO "photo_carts" ("cart_id", "created_at", "photo_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["cart_id", 5], ["created_at", Wed, 03 Sep 2014 10:50:41 UTC +00:00], ["photo_id", 8], ["updated_at", Wed, 03 Sep 2014 10:50:41 UTC +00:00]]
+  [1m[35m (2.2ms)[0m  COMMIT
+  Rendered text template (0.0ms)
+Completed 200 OK in 70.0ms (Views: 2.8ms | ActiveRecord: 18.7ms)
+
+
+Started GET "/collections/2-test/albums/2-test/photos/7-macs-suck-think-gamer-by-biohazard40077" for 127.0.0.1 at 2014-09-03 12:50:43 +0200
+Processing by PhotosController#show as HTML
+  Parameters: {"collection_id"=>"2-test", "album_id"=>"2-test", "id"=>"7-macs-suck-think-gamer-by-biohazard40077"}
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mPhoto Load (0.6ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."id" = $1 LIMIT 1  [["id", "7-macs-suck-think-gamer-by-biohazard40077"]]
+  [1m[36mAlbum Load (0.8ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35m (0.9ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "photos" WHERE (id < 7 AND album_Id = 2 ) LIMIT 1) subquery_for_count 
+  [1m[36mPhoto Load (0.9ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE (id < 7 AND album_Id = 2 ) ORDER BY id DESC LIMIT 1[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "photos" WHERE (id > 7 AND album_Id = 2 ) LIMIT 1) subquery_for_count 
+  [1m[36mPhoto Load (0.9ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE (id > 7 AND album_Id = 2 ) ORDER BY id ASC LIMIT 1[0m
+  [1m[35mCollection Load (1.2ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  [1m[36mTag Load (1.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "photo_tags" ON "tags"."id" = "photo_tags"."tag_id" WHERE "photo_tags"."photo_id" = 7[0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.8ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-03 10:50:44.001269', "perishable_token" = 'DVeKh6K0rsg4zB8Mhicx', "updated_at" = '2014-09-03 10:50:44.004364' WHERE "users"."id" = 4[0m
+  [1m[35m (1.9ms)[0m  COMMIT
+  [1m[36mRole Load (1.0ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'[0m
+  [1m[35mRole Load (0.9ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'
+  Rendered photos/show.html.erb within layouts/application (30.7ms)
+Completed 200 OK in 49.8ms (Views: 29.2ms | ActiveRecord: 15.0ms)
+
+
+Started POST "/photo_carts?photo_id=7" for 127.0.0.1 at 2014-09-03 12:50:46 +0200
+Processing by PhotoCartsController#create as JS
+  Parameters: {"photo_id"=>"7"}
+WARNING: Can't verify CSRF token authenticity
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.8ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-03 10:50:46.964101', "perishable_token" = 'du5yaProVJKZ2AWHoEbR', "updated_at" = '2014-09-03 10:50:46.967536' WHERE "users"."id" = 4[0m
+  [1m[35m (2.2ms)[0m  COMMIT
+  [1m[36mCart Load (0.8ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = 4 ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."user_id" = 4 ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mPhoto Load (0.6ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."id" = $1 LIMIT 1[0m  [["id", "7"]]
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "photo_carts" ("cart_id", "created_at", "photo_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["cart_id", 5], ["created_at", Wed, 03 Sep 2014 10:50:46 UTC +00:00], ["photo_id", 7], ["updated_at", Wed, 03 Sep 2014 10:50:46 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  Rendered text template (0.0ms)
+Completed 200 OK in 25.6ms (Views: 0.7ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/collections/2-test/albums/2-test/photos/6-pirate-apple-by-lukeroberts" for 127.0.0.1 at 2014-09-03 12:50:49 +0200
+Processing by PhotosController#show as HTML
+  Parameters: {"collection_id"=>"2-test", "album_id"=>"2-test", "id"=>"6-pirate-apple-by-lukeroberts"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mPhoto Load (0.6ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."id" = $1 LIMIT 1  [["id", "6-pirate-apple-by-lukeroberts"]]
+  [1m[36mAlbum Load (0.9ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35m (0.8ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "photos" WHERE (id < 6 AND album_Id = 2 ) LIMIT 1) subquery_for_count 
+  [1m[36mPhoto Load (0.9ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE (id < 6 AND album_Id = 2 ) ORDER BY id DESC LIMIT 1[0m
+  [1m[35m (0.8ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "photos" WHERE (id > 6 AND album_Id = 2 ) LIMIT 1) subquery_for_count 
+  [1m[36mPhoto Load (0.8ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE (id > 6 AND album_Id = 2 ) ORDER BY id ASC LIMIT 1[0m
+  [1m[35mCollection Load (1.2ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  [1m[36mTag Load (1.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "photo_tags" ON "tags"."id" = "photo_tags"."tag_id" WHERE "photo_tags"."photo_id" = 6[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.9ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-03 10:50:49.681837', "perishable_token" = 'GoIkMDVs5AOdaqaXwZPC', "updated_at" = '2014-09-03 10:50:49.685289' WHERE "users"."id" = 4[0m
+  [1m[35m (2.0ms)[0m  COMMIT
+  [1m[36mRole Load (1.0ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'[0m
+  [1m[35mRole Load (0.9ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'
+  Rendered photos/show.html.erb within layouts/application (36.3ms)
+Completed 200 OK in 57.7ms (Views: 34.3ms | ActiveRecord: 15.0ms)
+
+
+Started POST "/photo_carts?photo_id=6" for 127.0.0.1 at 2014-09-03 12:50:52 +0200
+Processing by PhotoCartsController#create as JS
+  Parameters: {"photo_id"=>"6"}
+WARNING: Can't verify CSRF token authenticity
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.6ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-03 10:50:52.183323', "perishable_token" = '0k7IT16YQLirfeuOv228', "updated_at" = '2014-09-03 10:50:52.186015' WHERE "users"."id" = 4[0m
+  [1m[35m (2.8ms)[0m  COMMIT
+  [1m[36mCart Load (0.5ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = 4 ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."user_id" = 4 ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mPhoto Load (0.3ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."id" = $1 LIMIT 1[0m  [["id", "6"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photo_carts" ("cart_id", "created_at", "photo_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["cart_id", 5], ["created_at", Wed, 03 Sep 2014 10:50:52 UTC +00:00], ["photo_id", 6], ["updated_at", Wed, 03 Sep 2014 10:50:52 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  Rendered text template (0.0ms)
+Completed 200 OK in 19.1ms (Views: 0.4ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/carts/" for 127.0.0.1 at 2014-09-03 12:51:06 +0200
+Processing by CartsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.4ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-03 10:51:06.329731', "perishable_token" = 'J6mvUrIFoMGNa2rvEDX', "updated_at" = '2014-09-03 10:51:06.332347' WHERE "users"."id" = 4[0m
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36mCart Load (0.7ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = 4 ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."user_id" = 4 ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mPhotoCart Load (0.8ms)[0m  [1mSELECT "photo_carts".* FROM "photo_carts" WHERE "photo_carts"."cart_id" = 5[0m
+  [1m[35mPhoto Load (0.8ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."id" = 8 LIMIT 1
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35mPhoto Load (0.7ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."id" = 7 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35mPhoto Load (0.8ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."id" = 6 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  Rendered carts/index.html.erb within layouts/application (20.3ms)
+Completed 200 OK in 39.2ms (Views: 23.0ms | ActiveRecord: 8.5ms)
+
+
+Started GET "/remove_from_cart?photo_id=8" for 127.0.0.1 at 2014-09-03 12:51:16 +0200
+Processing by PhotoCartsController#remove_from_cart as JS
+  Parameters: {"photo_id"=>"8"}
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (0.7ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-03 10:51:16.909250', "perishable_token" = 'ygrMGaV3L8YKoLTBfUP4', "updated_at" = '2014-09-03 10:51:16.912062' WHERE "users"."id" = 4
+  [1m[36m (1.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mCart Load (0.6ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."user_id" = 4 ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1mDELETE FROM "photo_carts" WHERE "photo_carts"."cart_id" = 5 AND "photo_carts"."photo_id" = 8[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 17.5ms (Views: 0.5ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/remove_from_cart?photo_id=7" for 127.0.0.1 at 2014-09-03 12:51:17 +0200
+Processing by PhotoCartsController#remove_from_cart as JS
+  Parameters: {"photo_id"=>"7"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (0.8ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-03 10:51:17.945586', "perishable_token" = 'OiNBUh6gBukCX694CFgf', "updated_at" = '2014-09-03 10:51:17.948469' WHERE "users"."id" = 4
+  [1m[36m (3.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mCart Load (0.8ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."user_id" = 4 ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "photo_carts" WHERE "photo_carts"."cart_id" = 5 AND "photo_carts"."photo_id" = 7[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 19.7ms (Views: 0.8ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/remove_from_cart?photo_id=6" for 127.0.0.1 at 2014-09-03 12:51:18 +0200
+Processing by PhotoCartsController#remove_from_cart as JS
+  Parameters: {"photo_id"=>"6"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (0.8ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-03 10:51:18.831491', "perishable_token" = 'eHt369aUgFeXOklmFmyj', "updated_at" = '2014-09-03 10:51:18.835691' WHERE "users"."id" = 4
+  [1m[36m (2.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mCart Load (0.8ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."user_id" = 4 ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1mDELETE FROM "photo_carts" WHERE "photo_carts"."cart_id" = 5 AND "photo_carts"."photo_id" = 6[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 23.3ms (Views: 0.8ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-03 12:51:23 +0200
+Processing by CollectionsController#index as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mCollection Load (0.8ms)[0m  [1mSELECT "collections".* FROM "collections" ORDER BY title[0m
+  [1m[35m (1.3ms)[0m  SELECT COUNT(*) FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2
+  [1m[36mAlbum Load (1.0ms)[0m  [1mSELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 LIMIT 1[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "photos" WHERE "photos"."album_id" = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 LIMIT 1[0m
+  [1m[35mPhoto Load (0.8ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 2 LIMIT 1
+  [1m[36mAlbum Load (0.8ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4
+  [1m[36m (0.8ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2014-09-03 10:51:23.846068', "perishable_token" = '7XEINnJVzDYSUdWeYBn', "updated_at" = '2014-09-03 10:51:23.848899' WHERE "users"."id" = 4[0m
+  [1m[35m (2.0ms)[0m  COMMIT
+  [1m[36mRole Load (1.0ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'[0m
+  [1m[35mRole Load (0.9ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'
+  Rendered collections/index.html.erb within layouts/application (30.1ms)
+Completed 200 OK in 40.7ms (Views: 25.2ms | ActiveRecord: 12.9ms)
+
+
+Started GET "/collections/2-test" for 127.0.0.1 at 2014-09-03 12:51:25 +0200
+Processing by CollectionsController#show as HTML
+  Parameters: {"id"=>"2-test"}
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mCollection Load (0.6ms)[0m  SELECT "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT 1  [["id", "2-test"]]
+  [1m[36mAlbum Load (1.2ms)[0m  [1mSELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 ORDER BY title[0m
+  [1m[35m (0.8ms)[0m  SELECT COUNT(*) FROM "photos" WHERE "photos"."album_id" = 2
+  [1m[36mPhoto Load (0.7ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 2 LIMIT 1[0m
+  [1m[35mAlbum Load (0.8ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  [1m[36mCollection Load (1.2ms)[0m  [1mSELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1[0m
+  Rendered photos/_thumb.html.erb (8.4ms)
+  [1m[35mPhoto Load (1.1ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 2 LIMIT 5 OFFSET 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  Rendered photos/_thumb.html.erb (22.7ms)
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (0.7ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-03 10:51:25.758358', "perishable_token" = 'L8AFnT8BR39n2GoYEOl', "updated_at" = '2014-09-03 10:51:25.761542' WHERE "users"."id" = 4
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (0.9ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'
+  [1m[36mRole Load (0.6ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'[0m
+  Rendered collections/show.html.erb within layouts/application (59.6ms)
+Completed 200 OK in 74.4ms (Views: 55.3ms | ActiveRecord: 14.2ms)
+
+
+Started GET "/collections/2-test/albums/2-test/photos/8-caraibes" for 127.0.0.1 at 2014-09-03 12:51:27 +0200
+Processing by PhotosController#show as HTML
+  Parameters: {"collection_id"=>"2-test", "album_id"=>"2-test", "id"=>"8-caraibes"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mPhoto Load (0.7ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."id" = $1 LIMIT 1[0m  [["id", "8-caraibes"]]
+  [1m[35mAlbum Load (0.9ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "photos" WHERE (id < 8 AND album_Id = 2 ) LIMIT 1) subquery_for_count [0m
+  [1m[35mPhoto Load (0.9ms)[0m  SELECT "photos".* FROM "photos" WHERE (id < 8 AND album_Id = 2 ) ORDER BY id DESC LIMIT 1
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "photos" WHERE (id > 8 AND album_Id = 2 ) LIMIT 1) subquery_for_count [0m
+  [1m[35mCollection Load (1.1ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1[0m
+  [1m[35mTag Load (1.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "photo_tags" ON "tags"."id" = "photo_tags"."tag_id" WHERE "photo_tags"."photo_id" = 8
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (0.9ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-03 10:51:27.218817', "perishable_token" = 'lCB1LlTx1MNVYjlu0d0', "updated_at" = '2014-09-03 10:51:27.222216' WHERE "users"."id" = 4
+  [1m[36m (2.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (1.0ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 4 AND "role_memberships"."roleable_type" = 'User'
+  [1m[36mRole Load (0.9ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "role_memberships" ON "roles"."id" = "role_memberships"."role_id" WHERE "role_memberships"."roleable_id" = 1 AND "role_memberships"."roleable_type" = 'Role'[0m
+  Rendered photos/show.html.erb within layouts/application (31.7ms)
+Completed 200 OK in 50.4ms (Views: 29.4ms | ActiveRecord: 14.1ms)
+
+
+Started POST "/photo_carts?photo_id=8" for 127.0.0.1 at 2014-09-03 12:51:29 +0200
+Processing by PhotoCartsController#create as JS
+  Parameters: {"photo_id"=>"8"}
+WARNING: Can't verify CSRF token authenticity
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (0.5ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-03 10:51:29.404519', "perishable_token" = 'rxHQaGcR4paoZ4R3Bffg', "updated_at" = '2014-09-03 10:51:29.407364' WHERE "users"."id" = 4
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mCart Load (0.7ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."user_id" = 4 ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = 4 ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mPhoto Load (0.6ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."id" = $1 LIMIT 1  [["id", "8"]]
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "photo_carts" ("cart_id", "created_at", "photo_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["cart_id", 5], ["created_at", Wed, 03 Sep 2014 10:51:29 UTC +00:00], ["photo_id", 8], ["updated_at", Wed, 03 Sep 2014 10:51:29 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 18.7ms (Views: 0.7ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2014-09-03 12:51:43 +0200
+Processing by UserSessionsController#destroy as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "authentications" WHERE "authentications"."user_id" = 4[0m
+  [1m[35m (0.5ms)[0m  UPDATE "users" SET "last_request_at" = '2014-09-03 10:51:43.682786', "perishable_token" = 'YErrkdB1gfjzlELM95Ke', "updated_at" = '2014-09-03 10:51:43.684941' WHERE "users"."id" = 4
+  [1m[36m (1.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 12.7ms (ActiveRecord: 4.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-03 12:51:43 +0200
+Processing by CollectionsController#index as HTML
+  [1m[35mUser Load (1.5ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mCollection Load (0.9ms)[0m  [1mSELECT "collections".* FROM "collections" ORDER BY title[0m
+  [1m[35m (1.2ms)[0m  SELECT COUNT(*) FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2
+  [1m[36mAlbum Load (0.9ms)[0m  [1mSELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 LIMIT 1[0m
+  [1m[35m (0.8ms)[0m  SELECT COUNT(*) FROM "photos" WHERE "photos"."album_id" = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 LIMIT 1[0m
+  [1m[35mPhoto Load (0.8ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 2 LIMIT 1
+  [1m[36mAlbum Load (0.8ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  Rendered collections/index.html.erb within layouts/application (19.1ms)
+Completed 200 OK in 31.7ms (Views: 21.6ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/collections/2-test" for 127.0.0.1 at 2014-09-03 12:51:48 +0200
+Processing by CollectionsController#show as HTML
+  Parameters: {"id"=>"2-test"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mCollection Load (0.5ms)[0m  [1mSELECT "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT 1[0m  [["id", "2-test"]]
+  [1m[35mAlbum Load (1.1ms)[0m  SELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 ORDER BY title
+  [1m[36m (5.1ms)[0m  [1mSELECT COUNT(*) FROM "photos" WHERE "photos"."album_id" = 2[0m
+  [1m[35mPhoto Load (1.1ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 2 LIMIT 1
+  [1m[36mAlbum Load (0.8ms)[0m  [1mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1[0m
+  [1m[35mCollection Load (1.2ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  Rendered photos/_thumb.html.erb (9.3ms)
+  [1m[36mPhoto Load (1.0ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 2 LIMIT 5 OFFSET 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1[0m
+  Rendered photos/_thumb.html.erb (21.3ms)
+  Rendered collections/show.html.erb within layouts/application (46.1ms)
+Completed 200 OK in 132.6ms (Views: 117.6ms | ActiveRecord: 11.6ms)
+
+
+Started GET "/collections/2-test/albums/2-test/photos/8-caraibes" for 127.0.0.1 at 2014-09-03 12:51:49 +0200
+Processing by PhotosController#show as HTML
+  Parameters: {"collection_id"=>"2-test", "album_id"=>"2-test", "id"=>"8-caraibes"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mPhoto Load (0.6ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."id" = $1 LIMIT 1[0m  [["id", "8-caraibes"]]
+  [1m[35mAlbum Load (0.6ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "photos" WHERE (id < 8 AND album_Id = 2 ) LIMIT 1) subquery_for_count [0m
+  [1m[35mPhoto Load (0.6ms)[0m  SELECT "photos".* FROM "photos" WHERE (id < 8 AND album_Id = 2 ) ORDER BY id DESC LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "photos" WHERE (id > 8 AND album_Id = 2 ) LIMIT 1) subquery_for_count [0m
+  [1m[35mCollection Load (0.8ms)[0m  SELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "collections".* FROM "collections" INNER JOIN "collection_albums" ON "collections"."id" = "collection_albums"."collection_id" WHERE "collection_albums"."album_id" = 2 LIMIT 1[0m
+  [1m[35mTag Load (1.0ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "photo_tags" ON "tags"."id" = "photo_tags"."tag_id" WHERE "photo_tags"."photo_id" = 8
+  Rendered photos/show.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 23.0ms (Views: 12.3ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-03 12:51:57 +0200
+Processing by CollectionsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mCollection Load (0.6ms)[0m  SELECT "collections".* FROM "collections" ORDER BY title
+  [1m[36m (0.9ms)[0m  [1mSELECT COUNT(*) FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2[0m
+  [1m[35mAlbum Load (0.8ms)[0m  SELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "photos" WHERE "photos"."album_id" = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "albums".* FROM "albums" INNER JOIN "collection_albums" ON "albums"."id" = "collection_albums"."album_id" WHERE "collection_albums"."collection_id" = 2 LIMIT 1
+  [1m[36mPhoto Load (0.6ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."album_id" = 2 LIMIT 1[0m
+  [1m[35mAlbum Load (0.7ms)[0m  SELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1
+  Rendered collections/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 18.4ms (Views: 11.9ms | ActiveRecord: 5.1ms)
+>>>>>>> bf4e4a17fb2b3ecd14b8577101250cf53500e73c

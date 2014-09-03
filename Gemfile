@@ -46,8 +46,14 @@ gem "mini_magick"
 gem 'activemerchant'
 gem 'jquery-rails'
 gem "mini_exiftool_vendored"
+<<<<<<< HEAD
 
 #gem 'font-awesome-rails'
 #gem 'bootstrap-sass', '~> 3.2.0'
 #gem 'sass-rails', '>= 3.2'
 #gem 'autoprefixer-rails'
+=======
+gem 'calendar_helper'
+gem 'icalendar'
+gem 'fullcalendar_engine', '1.0.6', :path => 'vendor/gems/fullcalendar_engine-1.0.6'
+>>>>>>> bf4e4a17fb2b3ecd14b8577101250cf53500e73c

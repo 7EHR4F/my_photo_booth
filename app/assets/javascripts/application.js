@@ -1,6 +1,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+<<<<<<< HEAD
 
 $(document).ready(function() {
     var sourceSwap = function () {
@@ -17,3 +18,6 @@ $(document).ready(function() {
     $('.swap').hover(sourceSwap);
     $('.blink').hover(blink, function() {});
 });
+=======
+//= require fullcalendar_engine/application
+>>>>>>> bf4e4a17fb2b3ecd14b8577101250cf53500e73c
