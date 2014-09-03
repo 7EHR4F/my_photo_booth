@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140827132228) do
+ActiveRecord::Schema.define(:version => 20140903095625) do
 
   create_table "albums", :force => true do |t|
     t.string   "title",       :null => false
@@ -31,6 +31,11 @@ ActiveRecord::Schema.define(:version => 20140827132228) do
     t.integer  "user_id"
     t.string   "provider"
     t.string   "uid"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "calendars", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -59,6 +64,29 @@ ActiveRecord::Schema.define(:version => 20140827132228) do
   end
 
   add_index "collections", ["id"], :name => "index_collections_on_id", :unique => true
+
+  create_table "fullcalendar_engine_event_series", :force => true do |t|
+    t.integer  "frequency",  :default => 1
+    t.string   "period",     :default => "monthly"
+    t.datetime "starttime"
+    t.datetime "endtime"
+    t.boolean  "all_day",    :default => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+  end
+
+  create_table "fullcalendar_engine_events", :force => true do |t|
+    t.string   "title"
+    t.datetime "starttime"
+    t.datetime "endtime"
+    t.boolean  "all_day",         :default => false
+    t.text     "description"
+    t.integer  "event_series_id"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+  end
+
+  add_index "fullcalendar_engine_events", ["event_series_id"], :name => "index_fullcalendar_engine_events_on_event_series_id"
 
   create_table "payments", :force => true do |t|
     t.datetime "created_at",  :null => false

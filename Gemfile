@@ -46,3 +46,6 @@ gem "mini_magick"
 gem 'activemerchant'
 gem 'jquery-rails'
 gem "mini_exiftool_vendored"
+gem 'calendar_helper'
+gem 'icalendar'
+gem 'fullcalendar_engine', '1.0.6', :path => 'vendor/gems/fullcalendar_engine-1.0.6'
