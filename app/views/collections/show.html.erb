@@ -16,12 +16,15 @@
 <%= content_for :action_links do %>
 <% if has_role?("admin") %>
 <%= link_to collection_path(@collection, :format => 'pdf'), class: "btn btn-info" do %>
+<%= content_tag(:i, "", class: "fa fa-file-pdf-o") %>
 <%= "PDF" %>
 <% end %>
 <%= link_to edit_collection_path(@collection), class: "btn btn-warning" do %>
+<%= content_tag(:i, "", class: "fa fa-edit") %>
 <%= "Modifier la collection" %>
 <% end %>
 <%= link_to new_collection_album_path(@collection), class:"btn btn-success" do %>
+<%= content_tag(:i, "", class: "fa fa-plus") %>
 <%= "Ajouter un album" %>
 <% end %>
 <% end %>

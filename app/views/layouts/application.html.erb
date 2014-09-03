@@ -7,6 +7,7 @@
 	<meta name="viewport" content="initial-scale=1.0">
 	<%= yield :head %>
 	<%= stylesheet_link_tag 'application' %>
+	<%= stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' %>
 	<%= csrf_meta_tag %>
 </head>
 <body>
@@ -32,6 +33,7 @@
 	<div id="account_links">
 	<% if current_user %>
 	<%= link_to '#', class:"btn btn-info" do %>
+	<%= content_tag(:i, "", class:'fa fa-user') %>
 	<%= current_user.name %>
 	<% end %>
 	<%= link_to logout_path, class: "btn btn-danger" do %>
